@@ -47,7 +47,7 @@ foreach (string file in new[] { "tokens-explained.pdf", "tokens-explained-scanne
     Console.WriteLine();
     Console.WriteLine($"== {file}");
     var document = await Samples.ExtractFileAsync(documents, Path.Combine("books", "pdf", file));
-    int words = document.EnumerateContent().Sum(e => Samples.TextOf(e).Split(' ', StringSplitOptions.RemoveEmptyEntries).Length);
+    int words = document.GetText().Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries).Length;
     Console.WriteLine($"   {document.Sections.Count} sections, about {words} words");
 }
 
@@ -81,7 +81,7 @@ sealed class ScannedPdfFallback(DocumentExtractionClient inner, DocumentExtracti
         buffer.Position = 0;
 
         var document = await base.ExtractAsync(buffer, identifier, mediaType, options, cancellationToken);
-        int characters = document.EnumerateContent().Sum(e => Samples.TextOf(e).Trim().Length);
+        int characters = document.GetText().Count(c => !char.IsWhiteSpace(c));
         if (characters > 100)
         {
             return document;

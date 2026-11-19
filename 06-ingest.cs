@@ -78,7 +78,7 @@ sealed class ExtractionReader(DocumentExtractionClient client) : IngestionDocume
             var mapped = new IngestionDocumentSection();
             // Layout-aware providers nest sections, so walk down to the content elements.
             // Skip repeated page headers, footers, and page numbers; they only add noise to chunks.
-            foreach (var element in Samples.Leaves(section).Where(e => !Samples.IsPageFurniture(e)))
+            foreach (var element in section.EnumerateContent().Where(e => !Samples.IsPageFurniture(e)))
             {
                 if (Map(element) is { } item)
                 {
