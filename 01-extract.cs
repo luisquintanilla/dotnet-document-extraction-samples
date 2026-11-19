@@ -4,6 +4,8 @@
 //   dotnet run 01-extract.cs
 //   dotnet run 01-extract.cs -- path/to/your.pdf
 #:package Microsoft.Extensions.DocumentExtraction@11.0.0-preview.1.26560.3
+// TODO: drop this line once Microsoft.Extensions.DocumentExtraction ships with GetText (dotnet/extensions#7962).
+#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.2
 #:package CommunityToolkit.DocumentExtraction.PdfPig@1.0.0-preview
 #:property PublishAot=false
 #:property NoWarn=$(NoWarn);MEDE0001;EXTEXP0019;CTDE0001
@@ -35,16 +37,11 @@ foreach (var section in document.Sections)
 
     // PdfPig returns flat sections. Layout-aware providers (Document Intelligence, Content Understanding)
     // nest sections inside sections and put text in table cells, so a two-level loop like this one
-    // only sees part of their output. Samples 02-06 use Samples.Leaves and Samples.TextOf to read everything.
+    // only sees part of their output. To read everything, use document.GetText(), or
+    // section.EnumerateContent() with element.GetText() as samples 02-06 do.
     foreach (var element in section.Elements)
     {
-        string text = element switch
-        {
-            { Content: TextContent t } => t.Text,
-            ExtractionDocumentImageElement { Text: { } imageText } => imageText,
-            _ => "",
-        };
-        text = text.ReplaceLineEndings(" ");
+        string text = element.GetText().ReplaceLineEndings(" ");
         if (text.Length > 70) text = text[..67] + "...";
 
         string kind = element switch

@@ -2,6 +2,8 @@
 // Shared helpers for every sample. Each sample pulls this file in with #:include,
 // so all package references live here in one place.
 #:package Microsoft.Extensions.DocumentExtraction@11.0.0-preview.1.26560.3
+// TODO: drop this line once Microsoft.Extensions.DocumentExtraction ships with GetText (dotnet/extensions#7962).
+#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.2
 #:package CommunityToolkit.DocumentExtraction.PdfPig@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.VisionLanguageModel@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.Mistral@1.0.0-preview
@@ -268,47 +270,6 @@ static class Samples
         return await client.ExtractAsync(stream, Path.GetFileName(path), MediaType(path), options, cancellationToken);
     }
 
-    /// <summary>
-    /// Gets all the text an element holds: its own text, the text of nested sections,
-    /// every table cell, and the text a provider read from an image (for example, chart labels).
-    /// Checking only for text elements misses table cells and image text.
-    /// </summary>
-    public static string TextOf(ExtractionDocumentElement element)
-    {
-        var parts = new List<string>();
-        if (element.Content is TextContent { Text: { } own }) parts.Add(own);
-        switch (element)
-        {
-            case ExtractionDocumentSection section:
-                parts.AddRange(section.Elements.Select(TextOf));
-                break;
-            case ExtractionDocumentTableElement table:
-                // Each cell holds a section. Merged cells appear once, at their top-left position.
-                parts.AddRange(table.Cells.Where(c => c?.Content is not null).Select(c => TextOf(c!.Content!)));
-                break;
-            case ExtractionDocumentImageElement { Text: { } imageText }:
-                parts.Add(imageText);
-                break;
-        }
-        return string.Join(" ", parts.Where(t => !string.IsNullOrWhiteSpace(t)));
-    }
-
-    /// <summary>
-    /// Walks nested sections depth-first and yields the content elements (text, tables, images).
-    /// Layout-aware providers such as Document Intelligence nest sections inside sections.
-    /// </summary>
-    public static IEnumerable<ExtractionDocumentElement> Leaves(ExtractionDocumentElement element)
-    {
-        if (element is not ExtractionDocumentSection section)
-        {
-            yield return element;
-            yield break;
-        }
-        foreach (var child in section.Elements)
-            foreach (var leaf in Leaves(child))
-                yield return leaf;
-    }
-
     /// <summary>Page furniture repeats on every page and adds noise to search results.</summary>
     public static bool IsPageFurniture(ExtractionDocumentElement element) =>
         element is ExtractionDocumentTextElement { Role: "pageHeader" or "pageFooter" or "pageNumber" };
@@ -323,10 +284,11 @@ static class Samples
         int shown = 0;
         foreach (var section in document.Sections)
         {
-            foreach (var element in Leaves(section))
+            // EnumerateContent walks nested sections; GetText reads table cells and image text too.
+            foreach (var element in section.EnumerateContent())
             {
                 if (shown++ >= maxElements) { Console.WriteLine("  ..."); return; }
-                Console.WriteLine($"  p{PageOf(element) ?? PageOf(section)} [{KindOf(element)}] {Shorten(TextOf(element))}");
+                Console.WriteLine($"  p{PageOf(element) ?? PageOf(section)} [{KindOf(element)}] {Shorten(element.GetText())}");
             }
         }
     }
@@ -350,16 +312,6 @@ static class Samples
         var cells = table.Cells;
         if (cells.RowCount == 0 || cells.ColumnCount == 0) return "(empty table)";
 
-        // The grid stores a merged cell only at its top-left position; the positions it covers read as null.
-        var covered = new bool[cells.RowCount, cells.ColumnCount];
-        foreach (var anchor in cells)
-        {
-            if (anchor is null) continue;
-            for (int r = anchor.RowIndex; r < anchor.RowIndex + anchor.RowSpan; r++)
-                for (int c = anchor.ColumnIndex; c < anchor.ColumnIndex + anchor.ColumnSpan; c++)
-                    covered[r, c] = r != anchor.RowIndex || c != anchor.ColumnIndex;
-        }
-
         var sb = new System.Text.StringBuilder();
         for (int r = 0; r < cells.RowCount; r++)
         {
@@ -370,11 +322,12 @@ static class Samples
                 string text = "";
                 if (cell is not null)
                 {
-                    text = cell.Content is null ? "" : TextOf(cell.Content).ReplaceLineEndings(" ").Replace("|", "\\|");
+                    text = cell.GetText().ReplaceLineEndings(" ").Replace("|", "\\|");
                     if (cell.ColumnSpan > 1) text += $" (spans {cell.ColumnSpan} cols)";
                     if (cell.RowSpan > 1) text += $" (spans {cell.RowSpan} rows)";
                 }
-                else if (covered[r, c])
+                // The indexer returns a merged cell only at its top-left position.
+                else if (cells.GetCoveringCell(r, c) is not null)
                 {
                     text = "^";
                 }

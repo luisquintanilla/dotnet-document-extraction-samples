@@ -57,7 +57,7 @@ foreach (string name in Providers.All)
     details.AppendLine("Headings found:").AppendLine();
     foreach (var h in elements.OfType<ExtractionDocumentTextElement>().Where(e => e.HeadingLevel is not null || e.Role == "heading"))
     {
-        details.AppendLine($"- {Samples.Shorten(Samples.TextOf(h), 80)}");
+        details.AppendLine($"- {Samples.Shorten(h.GetText(), 80)}");
     }
     if (headings == 0) details.AppendLine("- (none)");
     details.AppendLine();

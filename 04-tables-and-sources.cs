@@ -26,17 +26,16 @@ foreach (var table in document.EnumerateContent().OfType<ExtractionDocumentTable
 {
     Console.WriteLine();
     Console.WriteLine($"Table: {table.Cells.RowCount} rows x {table.Cells.ColumnCount} columns");
+    // Cells enumerates each cell once; a merged cell sits at its top-left position.
     foreach (var cell in table.Cells)
     {
-        if (cell is null) continue; // an empty position in the grid
-
         string span = (cell.RowSpan, cell.ColumnSpan) switch
         {
             (1, 1) => "",
             var (rows, cols) => $" spans {rows}x{cols}",
         };
         string role = cell.Role is null ? "" : $" ({cell.Role})";
-        string text = cell.Content is null ? "" : Samples.Shorten(Samples.TextOf(cell.Content), 40);
+        string text = Samples.Shorten(cell.GetText(), 40);
         Console.WriteLine($"  [{cell.RowIndex},{cell.ColumnIndex}]{span}{role} {text}");
     }
 }
@@ -48,7 +47,7 @@ Console.WriteLine("Where the headings are:");
 foreach (var heading in document.EnumerateContent().OfType<ExtractionDocumentTextElement>()
              .Where(e => e.HeadingLevel is not null || e.Role is "heading" or "title" or "sectionHeading"))
 {
-    Console.WriteLine($"  \"{Samples.Shorten(Samples.TextOf(heading), 40)}\"");
+    Console.WriteLine($"  \"{Samples.Shorten(heading.GetText(), 40)}\"");
     foreach (var source in heading.Sources)
     {
         var page = source.Page;
