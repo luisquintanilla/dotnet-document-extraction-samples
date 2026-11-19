@@ -160,7 +160,8 @@ static class Providers
 
 /// <summary>
 /// Middleware for small local models. If the model returns JSON that doesn't match the
-/// schema (for example, a table with no cells), read the page again as plain markdown.
+/// schema (for example, a table with no cells), or the server can't apply the JSON schema
+/// (some Ollama versions reject it with "failed to parse grammar"), read the page again as plain markdown.
 /// </summary>
 sealed class PlainMarkdownRetry(DocumentExtractionClient structured, DocumentExtractionClient plain) : DelegatingDocumentExtractionClient(structured)
 {
@@ -175,7 +176,7 @@ sealed class PlainMarkdownRetry(DocumentExtractionClient structured, DocumentExt
         {
             return await base.ExtractAsync(buffer, identifier, mediaType, options, cancellationToken);
         }
-        catch (InvalidDataException ex)
+        catch (Exception ex) when (ex is InvalidDataException || ex.Message.Contains("grammar", StringComparison.OrdinalIgnoreCase))
         {
             Console.WriteLine($"   Structured output failed for {identifier} ({ex.Message}). Retrying as plain markdown.");
             buffer.Position = 0;
@@ -267,14 +268,30 @@ static class Samples
         return await client.ExtractAsync(stream, Path.GetFileName(path), MediaType(path), options, cancellationToken);
     }
 
-    public static string TextOf(ExtractionDocumentElement element) => element switch
+    /// <summary>
+    /// Gets all the text an element holds: its own text, the text of nested sections,
+    /// every table cell, and the text a provider read from an image (for example, chart labels).
+    /// Checking only for text elements misses table cells and image text.
+    /// </summary>
+    public static string TextOf(ExtractionDocumentElement element)
     {
-        // Sections hold other elements (table cells hold a section too), so join their text.
-        ExtractionDocumentSection section => string.Join(" ", Leaves(section).Select(TextOf).Where(t => t.Length > 0)),
-        { Content: TextContent t } => t.Text,
-        { Content: null } => "",
-        _ => element.Content.ToString() ?? "",
-    };
+        var parts = new List<string>();
+        if (element.Content is TextContent { Text: { } own }) parts.Add(own);
+        switch (element)
+        {
+            case ExtractionDocumentSection section:
+                parts.AddRange(section.Elements.Select(TextOf));
+                break;
+            case ExtractionDocumentTableElement table:
+                // Each cell holds a section. Merged cells appear once, at their top-left position.
+                parts.AddRange(table.Cells.Where(c => c?.Content is not null).Select(c => TextOf(c!.Content!)));
+                break;
+            case ExtractionDocumentImageElement { Text: { } imageText }:
+                parts.Add(imageText);
+                break;
+        }
+        return string.Join(" ", parts.Where(t => !string.IsNullOrWhiteSpace(t)));
+    }
 
     /// <summary>
     /// Walks nested sections depth-first and yields the content elements (text, tables, images).
@@ -324,11 +341,25 @@ static class Samples
         _ => element.GetType().Name,
     };
 
-    /// <summary>Renders a table grid as Markdown. Merged cells show their span, like "(spans 2 cols)".</summary>
+    /// <summary>
+    /// Renders a table grid as Markdown. Merged cells show their span, like "(spans 2 cols)",
+    /// and the other positions they cover show "^".
+    /// </summary>
     public static string TableToMarkdown(ExtractionDocumentTableElement table)
     {
         var cells = table.Cells;
         if (cells.RowCount == 0 || cells.ColumnCount == 0) return "(empty table)";
+
+        // The grid stores a merged cell only at its top-left position; the positions it covers read as null.
+        var covered = new bool[cells.RowCount, cells.ColumnCount];
+        foreach (var anchor in cells)
+        {
+            if (anchor is null) continue;
+            for (int r = anchor.RowIndex; r < anchor.RowIndex + anchor.RowSpan; r++)
+                for (int c = anchor.ColumnIndex; c < anchor.ColumnIndex + anchor.ColumnSpan; c++)
+                    covered[r, c] = r != anchor.RowIndex || c != anchor.ColumnIndex;
+        }
+
         var sb = new System.Text.StringBuilder();
         for (int r = 0; r < cells.RowCount; r++)
         {
@@ -337,13 +368,13 @@ static class Samples
             {
                 var cell = cells[r, c];
                 string text = "";
-                if (cell is not null && cell.RowIndex == r && cell.ColumnIndex == c)
+                if (cell is not null)
                 {
                     text = cell.Content is null ? "" : TextOf(cell.Content).ReplaceLineEndings(" ").Replace("|", "\\|");
                     if (cell.ColumnSpan > 1) text += $" (spans {cell.ColumnSpan} cols)";
                     if (cell.RowSpan > 1) text += $" (spans {cell.RowSpan} rows)";
                 }
-                else if (cell is not null)
+                else if (covered[r, c])
                 {
                     text = "^";
                 }
