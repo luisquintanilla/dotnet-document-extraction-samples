@@ -5,3 +5,5 @@ obj/
 .vs/
 .vscode/
 
+validation/parsebench/.corpus/
+validation/parsebench/results/*/

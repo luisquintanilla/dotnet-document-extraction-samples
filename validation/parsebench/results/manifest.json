@@ -1,0 +1,46 @@
+{
+  "runtime": ".NET 11.0.0-rc.3.26522.148",
+  "os": "Microsoft Windows 10.0.26200",
+  "dataset": "llamaindex/ParseBench-2",
+  "datasetRevision": "c300dcf475574f027dbaad0e15f64f6c9b73b830",
+  "providers": {
+    "pdfpig": {
+      "runUtc": "2026-11-19T18:26:11Z",
+      "settings": "text layer, DocstrumBoundingBoxes"
+    },
+    "ollama": {
+      "runUtc": "2026-11-19T18:26:11Z",
+      "settings": "qwen3.5:4b, structured output off"
+    },
+    "mistral": {
+      "runUtc": "2026-11-19T18:28:19Z",
+      "settings": "Azure AI Foundry, mistral-ocr-4-0"
+    },
+    "docintel": {
+      "runUtc": "2026-11-19T18:26:11Z",
+      "settings": "prebuilt-layout"
+    },
+    "cu": {
+      "runUtc": "2026-11-19T18:26:11Z",
+      "settings": "prebuilt-layout"
+    }
+  },
+  "packages": {
+    "Azure.AI.ContentUnderstanding": "1.1.0+6af7db6572976f4b6cc65bb628c45456114e88a0",
+    "Azure.AI.DocumentIntelligence": "1.0.0+a491c5696ca9a18c790ac42a78db84c72af1c1cc",
+    "Azure.Core": "1.53.0+c94768fafa4dd93eef9f7c90c92522434fcedb32",
+    "CommunityToolkit.DocumentExtraction.AzureContentUnderstanding": "1.0.0-preview",
+    "CommunityToolkit.DocumentExtraction.AzureDocumentIntelligence": "1.0.0-preview",
+    "CommunityToolkit.DocumentExtraction.Mistral": "1.0.0-preview",
+    "CommunityToolkit.DocumentExtraction.PdfPig": "1.0.0-preview",
+    "CommunityToolkit.DocumentExtraction.VisionLanguageModel": "1.0.0-preview",
+    "Microsoft.Extensions.AI": "10.8.0+8f88b008401bd66a06240d1b7696cd89d921013b",
+    "Microsoft.Extensions.AI.Abstractions": "11.0.0+c60d72e7973a90cd4e4300d9153e97b93315e4b7",
+    "Microsoft.Extensions.DocumentExtraction.Abstractions": "11.0.0-preview.1.26560.3+c60d72e7973a90cd4e4300d9153e97b93315e4b7",
+    "Microsoft.Extensions.Documents.Abstractions": "11.0.0-dev",
+    "OllamaSharp": "5.5.2+a1ce0bd5f1021efd8d9dd1818a319575bb7b31a1",
+    "UglyToad.PdfPig": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
+    "UglyToad.PdfPig.Core": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
+    "UglyToad.PdfPig.DocumentLayoutAnalysis": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6"
+  }
+}
