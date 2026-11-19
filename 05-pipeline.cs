@@ -81,7 +81,7 @@ sealed class ScannedPdfFallback(DocumentExtractionClient inner, DocumentExtracti
         buffer.Position = 0;
 
         var document = await base.ExtractAsync(buffer, identifier, mediaType, options, cancellationToken);
-        int characters = document.EnumerateContent().Sum(e => e.Content is TextContent t ? t.Text.Trim().Length : 0);
+        int characters = document.EnumerateContent().Sum(e => Samples.TextOf(e).Trim().Length);
         if (characters > 100)
         {
             return document;
