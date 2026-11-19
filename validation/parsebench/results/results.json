@@ -1,0 +1,2652 @@
+[
+  {
+    "provider": "pdfpig",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 0.8,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3295,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3295,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3295,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3293,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3293,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 0.2,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 7890,
+        "truthRecall": 0.989,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 7890,
+        "truthRecall": 0.989,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 7890,
+        "truthRecall": 0.989,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 7888,
+        "truthRecall": 0.989,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 7888,
+        "truthRecall": 0.989,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "complex_table_headers_complex_header_006",
+    "seconds": 0.1,
+    "truthTokens": 195,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3104,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3104,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3104,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3102,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3102,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "dense_tables_dense_table_002",
+    "seconds": 0.3,
+    "truthTokens": 285,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 14117,
+        "truthRecall": 0.93,
+        "shareOfGetText": 1,
+        "repeatedLines": 42
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 14117,
+        "truthRecall": 0.93,
+        "shareOfGetText": 1,
+        "repeatedLines": 42
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 14117,
+        "truthRecall": 0.93,
+        "shareOfGetText": 1,
+        "repeatedLines": 42
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 14115,
+        "truthRecall": 0.93,
+        "shareOfGetText": 1,
+        "repeatedLines": 42
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 14115,
+        "truthRecall": 0.93,
+        "shareOfGetText": 1,
+        "repeatedLines": 42
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 0.1,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 2625,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 2625,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2625,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2623,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2623,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 0.1,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4672,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4672,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4672,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4670,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4670,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 0.1,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4182,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4182,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4182,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4180,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4180,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 0.1,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3637,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3637,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3637,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3635,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3635,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 0.1,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3320,
+        "truthRecall": 0.75,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3320,
+        "truthRecall": 0.75,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3320,
+        "truthRecall": 0.75,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3318,
+        "truthRecall": 0.75,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3318,
+        "truthRecall": 0.75,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "pdfpig",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 0,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 23.4,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 1598,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 9
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 1598,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 9
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 1598,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 9
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 1596,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 9
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 1596,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 9
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 150.4,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 15097,
+        "truthRecall": 0.811,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 15097,
+        "truthRecall": 0.811,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 15097,
+        "truthRecall": 0.811,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 15095,
+        "truthRecall": 0.811,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 15095,
+        "truthRecall": 0.811,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "complex_table_headers_complex_header_006",
+    "seconds": 65.6,
+    "truthTokens": 195,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 1946,
+        "truthRecall": 0.533,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 1946,
+        "truthRecall": 0.533,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 1946,
+        "truthRecall": 0.533,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 1944,
+        "truthRecall": 0.533,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 1944,
+        "truthRecall": 0.533,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "dense_tables_dense_table_002",
+    "error": "TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 300 seconds elapsing."
+  },
+  {
+    "provider": "ollama",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 88.2,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 2812,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 2812,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2812,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2810,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2810,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 99.7,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 5716,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 5716,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 5716,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 5714,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 5714,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 2
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 87.7,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4377,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4377,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4377,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4375,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4375,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 80.9,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3572,
+        "truthRecall": 0.593,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3572,
+        "truthRecall": 0.593,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3572,
+        "truthRecall": 0.593,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3570,
+        "truthRecall": 0.593,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3570,
+        "truthRecall": 0.593,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 61.6,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 970,
+        "truthRecall": 0.69,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 970,
+        "truthRecall": 0.69,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 970,
+        "truthRecall": 0.69,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 968,
+        "truthRecall": 0.69,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 968,
+        "truthRecall": 0.69,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ollama",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 156.7,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 6500,
+        "truthRecall": 0.946,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 6500,
+        "truthRecall": 0.946,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 6500,
+        "truthRecall": 0.946,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 6498,
+        "truthRecall": 0.946,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 6498,
+        "truthRecall": 0.946,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 12.2,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 1,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 889,
+        "truthRecall": 0.294,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 889,
+        "truthRecall": 0.294,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 889,
+        "truthRecall": 0.294,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 887,
+        "truthRecall": 0.294,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 887,
+        "truthRecall": 0.294,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 14.5,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 9283,
+        "truthRecall": 0.982,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 9283,
+        "truthRecall": 0.982,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 9283,
+        "truthRecall": 0.982,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 9281,
+        "truthRecall": 0.982,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 9281,
+        "truthRecall": 0.982,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "complex_table_headers_complex_header_006",
+    "seconds": 58.9,
+    "truthTokens": 195,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4277,
+        "truthRecall": 0.964,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4277,
+        "truthRecall": 0.964,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4277,
+        "truthRecall": 0.964,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4275,
+        "truthRecall": 0.964,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4275,
+        "truthRecall": 0.964,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "dense_tables_dense_table_002",
+    "seconds": 51.9,
+    "truthTokens": 285,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 670,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 670,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 670,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 668,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 668,
+        "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 55.3,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 2950,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 2950,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2950,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2948,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2948,
+        "truthRecall": 0.988,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 119,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 13,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4411,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4411,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4411,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4409,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4409,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 5.1,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4257,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4257,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4257,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4255,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4255,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 56.9,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 5,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3610,
+        "truthRecall": 0.598,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3610,
+        "truthRecall": 0.598,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3610,
+        "truthRecall": 0.598,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3608,
+        "truthRecall": 0.598,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3608,
+        "truthRecall": 0.598,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 122.8,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4930,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4930,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4930,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4928,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4928,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "mistral",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 8,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 3,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 6645,
+        "truthRecall": 0.914,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 6645,
+        "truthRecall": 0.914,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 6645,
+        "truthRecall": 0.914,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 6643,
+        "truthRecall": 0.914,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 6643,
+        "truthRecall": 0.914,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 14.5,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 2,
+      "nestedSections": 1,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 1,
+      "imagesWithText": 1
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 216,
+        "truthRecall": 0.059,
+        "shareOfGetText": 0.201,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 891,
+        "truthRecall": 0.294,
+        "shareOfGetText": 0.633,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 891,
+        "truthRecall": 0.294,
+        "shareOfGetText": 0.633,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 1827,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 4
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 1827,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 4
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 8.7,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 393,
+      "tables": 1,
+      "gridPositions": 640,
+      "anchorCells": 617,
+      "mergedCells": 19,
+      "sectionCells": 387,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 92,
+        "truthRecall": 0.018,
+        "shareOfGetText": 0.018,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4428,
+        "truthRecall": 0.605,
+        "shareOfGetText": 0.603,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 8008,
+        "truthRecall": 0.987,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 7546,
+        "truthRecall": 0.987,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 7546,
+        "truthRecall": 0.987,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "complex_table_headers_complex_header_006",
+    "error": "InvalidOperationException: A covered position must be edited through its anchor cell."
+  },
+  {
+    "provider": "docintel",
+    "doc": "dense_tables_dense_table_002",
+    "seconds": 5.6,
+    "truthTokens": 285,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 12606,
+        "truthRecall": 0.263,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 12606,
+        "truthRecall": 0.263,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 12606,
+        "truthRecall": 0.263,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 12604,
+        "truthRecall": 0.263,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 12604,
+        "truthRecall": 0.263,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 4.3,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 3,
+      "nestedSections": 64,
+      "tables": 1,
+      "gridPositions": 63,
+      "anchorCells": 63,
+      "mergedCells": 0,
+      "sectionCells": 63,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 0,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 816,
+        "truthRecall": 0.467,
+        "shareOfGetText": 0.476,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2694,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2692,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2692,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 5.4,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 12,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 3,
+      "imagesWithText": 3
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 0,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4456,
+        "truthRecall": 0.789,
+        "shareOfGetText": 0.93,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4456,
+        "truthRecall": 0.789,
+        "shareOfGetText": 0.93,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4934,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4934,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 4.3,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 6,
+      "nestedSections": 10,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 1,
+      "imagesWithText": 1
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 8,
+        "truthRecall": 0.043,
+        "shareOfGetText": 0.007,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4212,
+        "truthRecall": 1,
+        "shareOfGetText": 0.997,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4212,
+        "truthRecall": 1,
+        "shareOfGetText": 0.997,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4240,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4240,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 4.5,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 54,
+      "tables": 1,
+      "gridPositions": 63,
+      "anchorCells": 59,
+      "mergedCells": 3,
+      "sectionCells": 50,
+      "images": 6,
+      "imagesWithText": 2
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 270,
+        "truthRecall": 0.045,
+        "shareOfGetText": 0.074,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 1839,
+        "truthRecall": 0.289,
+        "shareOfGetText": 0.476,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3689,
+        "truthRecall": 0.606,
+        "shareOfGetText": 0.997,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3745,
+        "truthRecall": 0.608,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3745,
+        "truthRecall": 0.608,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 7.4,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 3,
+      "nestedSections": 605,
+      "tables": 1,
+      "gridPositions": 676,
+      "anchorCells": 664,
+      "mergedCells": 1,
+      "sectionCells": 604,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 14,
+        "truthRecall": 0.02,
+        "shareOfGetText": 0.039,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 14,
+        "truthRecall": 0.02,
+        "shareOfGetText": 0.039,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3931,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3809,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3809,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "docintel",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 4.5,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 64,
+      "tables": 2,
+      "gridPositions": 70,
+      "anchorCells": 66,
+      "mergedCells": 2,
+      "sectionCells": 62,
+      "images": 4,
+      "imagesWithText": 2
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 330,
+        "truthRecall": 0.071,
+        "shareOfGetText": 0.072,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 5464,
+        "truthRecall": 0.795,
+        "shareOfGetText": 0.805,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 6514,
+        "truthRecall": 0.961,
+        "shareOfGetText": 0.971,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 6648,
+        "truthRecall": 0.97,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 6648,
+        "truthRecall": 0.97,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 10.6,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 2,
+      "nestedSections": 1,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 1,
+      "imagesWithText": 1
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 216,
+        "truthRecall": 0.059,
+        "shareOfGetText": 0.201,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 891,
+        "truthRecall": 0.294,
+        "shareOfGetText": 0.633,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 891,
+        "truthRecall": 0.294,
+        "shareOfGetText": 0.633,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 1817,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 1817,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 5
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 3.5,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 499,
+      "tables": 1,
+      "gridPositions": 585,
+      "anchorCells": 527,
+      "mergedCells": 17,
+      "sectionCells": 494,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 93,
+        "truthRecall": 0.018,
+        "shareOfGetText": 0.018,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4428,
+        "truthRecall": 0.605,
+        "shareOfGetText": 0.604,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 8056,
+        "truthRecall": 0.991,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 7988,
+        "truthRecall": 0.991,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 7988,
+        "truthRecall": 0.991,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "complex_table_headers_complex_header_006",
+    "seconds": 4.1,
+    "truthTokens": 195,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 408,
+      "tables": 2,
+      "gridPositions": 466,
+      "anchorCells": 427,
+      "mergedCells": 4,
+      "sectionCells": 405,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 144,
+        "truthRecall": 0.108,
+        "shareOfGetText": 0.11,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 292,
+        "truthRecall": 0.195,
+        "shareOfGetText": 0.199,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3459,
+        "truthRecall": 0.974,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3413,
+        "truthRecall": 0.974,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3413,
+        "truthRecall": 0.974,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "dense_tables_dense_table_002",
+    "seconds": 3.7,
+    "truthTokens": 285,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 3,
+      "nestedSections": 1627,
+      "tables": 1,
+      "gridPositions": 2673,
+      "anchorCells": 2673,
+      "mergedCells": 0,
+      "sectionCells": 1626,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 0,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 12,
+        "truthRecall": 0.007,
+        "shareOfGetText": 0.007,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 15127,
+        "truthRecall": 0.744,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 13031,
+        "truthRecall": 0.744,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 13031,
+        "truthRecall": 0.744,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 3.3,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 3,
+      "nestedSections": 64,
+      "tables": 1,
+      "gridPositions": 63,
+      "anchorCells": 63,
+      "mergedCells": 0,
+      "sectionCells": 63,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 0,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 796,
+        "truthRecall": 0.467,
+        "shareOfGetText": 0.47,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2674,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2672,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2672,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 3.4,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 13,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 0,
+        "truthRecall": 0,
+        "shareOfGetText": 0,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4716,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4716,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4714,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4714,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 3.3,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 5,
+      "nestedSections": 9,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 31,
+        "truthRecall": 0.217,
+        "shareOfGetText": 0.021,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4240,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4240,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4238,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4238,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 3.6,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 3,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 6,
+      "imagesWithText": 4
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 256,
+        "truthRecall": 0.045,
+        "shareOfGetText": 0.074,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3615,
+        "truthRecall": 0.606,
+        "shareOfGetText": 0.987,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3615,
+        "truthRecall": 0.606,
+        "shareOfGetText": 0.987,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3733,
+        "truthRecall": 0.608,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3733,
+        "truthRecall": 0.608,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 3.3,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 3,
+      "nestedSections": 604,
+      "tables": 1,
+      "gridPositions": 676,
+      "anchorCells": 631,
+      "mergedCells": 10,
+      "sectionCells": 603,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 14,
+        "truthRecall": 0.02,
+        "shareOfGetText": 0.039,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 14,
+        "truthRecall": 0.02,
+        "shareOfGetText": 0.039,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3872,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3814,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3814,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "cu",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 3.5,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 4,
+      "nestedSections": 56,
+      "tables": 1,
+      "gridPositions": 56,
+      "anchorCells": 56,
+      "mergedCells": 0,
+      "sectionCells": 52,
+      "images": 2,
+      "imagesWithText": 1
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 172,
+        "truthRecall": 0.045,
+        "shareOfGetText": 0.044,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 5347,
+        "truthRecall": 0.786,
+        "shareOfGetText": 0.797,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 6304,
+        "truthRecall": 0.945,
+        "shareOfGetText": 0.956,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 6653,
+        "truthRecall": 0.971,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 6653,
+        "truthRecall": 0.971,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  }
+]

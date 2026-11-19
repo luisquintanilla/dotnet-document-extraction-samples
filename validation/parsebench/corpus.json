@@ -1,0 +1,67 @@
+{
+  "dataset": "llamaindex/ParseBench-2",
+  "revision": "c300dcf475574f027dbaad0e15f64f6c9b73b830",
+  "license": "Apache-2.0",
+  "documents": [
+    {
+      "id": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+      "path": "charts/(Web_version)_E-Government_Survey_2024_1392024_p101",
+      "pdfSha256": "b08f4611234bd26437aa015e10c52c57fc95d63ddc3a7224156e97d1d30b91c6",
+      "testSha256": "50680773e6508baa55dc116121549bc3569d68198969f18429ce1bd2ab62859c"
+    },
+    {
+      "id": "complex_table_headers_complex_header_003",
+      "path": "complex_table_headers/complex_header_003",
+      "pdfSha256": "c0df04fed853ff96622a62e783f7eba9ad59382bf296dc7443690171666d73f7",
+      "testSha256": "bdc3164ef7bfa7a39c4b98b855226657fd5efd620cead554c2fd0f55f8131c74"
+    },
+    {
+      "id": "complex_table_headers_complex_header_006",
+      "path": "complex_table_headers/complex_header_006",
+      "pdfSha256": "9b67a116160853167a847a35f4d43a4692de5ba41f5cddb089be2274af7bb5ce",
+      "testSha256": "538502863ba3ff906597a82fa263e9d532c5cc601cfcba0e2435c7ea3b518cfa"
+    },
+    {
+      "id": "dense_tables_dense_table_002",
+      "path": "dense_tables/dense_table_002",
+      "pdfSha256": "bb4be39bd7708eedb8c8c664c5df544fd1aed5e07f4e0591d39a09867b486e32",
+      "testSha256": "762a1015079f6eaa6216b974c9bbfd1ac4420915e57f87e0eb8112631d613978"
+    },
+    {
+      "id": "financial_tables_10k-2026-08-13_page1",
+      "path": "financial_tables/10k-2026-08-13_page1",
+      "pdfSha256": "4058f44e86cabbd7a433a8905bdd16aa4438c2ec6be6a5e84a292f1b61ddb75f",
+      "testSha256": "f5f461e3904cd85964cb5d14f704f71fa72d748fee0efacd2a9117b9bff6f1e0"
+    },
+    {
+      "id": "forms_blank__australia--02_WA-DLA1--p2__blank",
+      "path": "forms/blank__australia--02_WA-DLA1--p2__blank",
+      "pdfSha256": "c1aa0a764073697f26814f5344d85e5818b28f4ad979e0a366a0b34de5b7c966",
+      "testSha256": "428e8b9458d21559e6e2e6590b12f7915b5464419a8b436ca8960f2ccd8bd9c8"
+    },
+    {
+      "id": "headings_case-0001-6bba8f14b5f6",
+      "path": "headings/case-0001-6bba8f14b5f6",
+      "pdfSha256": "0be8cdf727bc807cd27e08722be6f59cb23aa4056c0831837140216332675da2",
+      "testSha256": "b0aca28f280c90c14f178c21753df94ef23b432798f99dcd38bce7d119df99ee"
+    },
+    {
+      "id": "layout_annotated__02775267_p3",
+      "path": "layout/annotated__02775267_p3",
+      "pdfSha256": "42b6f69c9d3bf5bd0735fd2cf8636b227b7cf32c1ee45bf81c3d63721690ea08",
+      "testSha256": "c999d2181ea871ad632db262db837ca98b110b98bf0b7310e2bdac9c5dea25bc"
+    },
+    {
+      "id": "tables_1_timetable__1__page2",
+      "path": "tables/1 timetable (1)_page2",
+      "pdfSha256": "663eec80f232d01f4abd8d49475e6a76aa0f128394bf07edd88037f32ea5f01b",
+      "testSha256": "f3622839a67a9203ef164695d2943bd3062546414eb09e5ec2869e779f5c8af5"
+    },
+    {
+      "id": "text_text_dense__baoutou",
+      "path": "text/text_dense__baoutou",
+      "pdfSha256": "d0877a509d1fd7446c14e769c1519da4a9e0c1a6fe7b6df849b8591d1c5ccda2",
+      "testSha256": "e33cddd1e01e556eb42bbeb741b6e77cfcd29b90f2b97962f936443dbee385f6"
+    }
+  ]
+}
