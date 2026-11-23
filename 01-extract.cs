@@ -33,9 +33,18 @@ foreach (var section in document.Sections)
     int? page = section.Sources.FirstOrDefault()?.Page.PageNumber;
     Console.WriteLine($"Section (page {page?.ToString() ?? "?"}), {section.Elements.Count} elements");
 
+    // PdfPig returns flat sections. Layout-aware providers (Document Intelligence, Content Understanding)
+    // nest sections inside sections and put text in table cells, so a two-level loop like this one
+    // only sees part of their output. Samples 02-06 use Samples.Leaves and Samples.TextOf to read everything.
     foreach (var element in section.Elements)
     {
-        string text = element.Content is TextContent t ? t.Text.ReplaceLineEndings(" ") : "";
+        string text = element switch
+        {
+            { Content: TextContent t } => t.Text,
+            ExtractionDocumentImageElement { Text: { } imageText } => imageText,
+            _ => "",
+        };
+        text = text.ReplaceLineEndings(" ");
         if (text.Length > 70) text = text[..67] + "...";
 
         string kind = element switch
@@ -44,6 +53,7 @@ foreach (var section in document.Sections)
             ExtractionDocumentTextElement e => e.Role ?? "text",
             ExtractionDocumentTableElement table => $"table {table.Cells.RowCount}x{table.Cells.ColumnCount}",
             ExtractionDocumentImageElement => "image",
+            ExtractionDocumentSection nested => $"nested section, {nested.Elements.Count} elements",
             _ => element.GetType().Name,
         };
         Console.WriteLine($"  [{kind}] {text}");
