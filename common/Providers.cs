@@ -3,7 +3,7 @@
 // so all package references live here in one place.
 #:package Microsoft.Extensions.DocumentExtraction@11.0.0-preview.1.26560.3
 // TODO: drop this line once Microsoft.Extensions.DocumentExtraction ships with GetText (dotnet/extensions#7962).
-#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.2
+#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.4
 #:package CommunityToolkit.DocumentExtraction.PdfPig@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.VisionLanguageModel@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.Mistral@1.0.0-preview

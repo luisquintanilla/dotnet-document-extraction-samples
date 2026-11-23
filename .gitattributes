@@ -3,3 +3,5 @@
 *.pdf binary
 *.png binary
 
+*.nupkg binary
+*.onnx binary

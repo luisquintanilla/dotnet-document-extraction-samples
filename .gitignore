@@ -7,3 +7,8 @@ obj/
 
 validation/parsebench/.corpus/
 validation/parsebench/results/*/
+
+# OCRia-nano-1 weights are provisioned by tools/ocria/Get-OcriaModels.ps1 and never committed (see its license).
+*.onnx
+*.bin
+
