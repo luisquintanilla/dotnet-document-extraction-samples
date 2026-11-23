@@ -1,8 +1,5 @@
 // Contract for the LayoutNet port (LiteParse crates/liteparse/src/table_model/{mod,decode,features,units}.rs), Apache-2.0.
-using Microsoft.ML.OnnxRuntime;
 using OcriaNano.DocumentExtraction.Imaging;
-using OcriaNano.DocumentExtraction.Ocr;
-using UglyToad.PdfPig.Content;
 
 namespace OcriaNano.DocumentExtraction.Layout;
 
@@ -36,33 +33,7 @@ internal sealed record PageModel(IReadOnlyList<ModelTable> Tables, IReadOnlyList
     public static PageModel Empty { get; } = new([], []);
 }
 
-/// <summary>Builds units from a PdfPig page (port of <c>units::pdf_units</c>).</summary>
-internal static partial class PdfUnits
-{
-    /// <summary>The page's units and its rendered size in points (width, height after <c>/Rotate</c>).</summary>
-    public static (List<Unit> Units, double Width, double Height) FromPage(Page page) => throw new NotImplementedException();
-}
-
-/// <summary>Builds units from OCR lines (LiteParse's <c>ocr_units</c>, without projection signals).</summary>
-internal static partial class OcrUnits
-{
-    /// <summary>One unit per OCR line, scaled from image pixels to points by <paramref name="pointsPerPixel"/>; <c>h</c> is the box height / 1.4.</summary>
-    public static List<Unit> FromOcr(IReadOnlyList<OcrLine> lines, double pointsPerPixel) => throw new NotImplementedException();
-}
-
-/// <summary>Runs <c>tablenet.onnx</c> on a page and decodes tables and blocks (port of <c>run_page</c>).</summary>
-internal sealed partial class LayoutNetRunner
-{
-    public LayoutNetRunner(InferenceSession tableNet)
-    {
-        TableNet = tableNet;
-    }
-
-    public InferenceSession TableNet { get; }
-
-    /// <summary>Tables and blocks on the page; <see cref="PageModel.Empty"/> for pages with under 2 or over 1500 units, or under 20 characters.</summary>
-    public PageModel Run(LayoutPageInput input, CancellationToken cancellationToken = default) => throw new NotImplementedException();
-}
+// PdfUnits (PdfUnits.cs), OcrUnits (OcrUnits.cs) and LayoutNetRunner (LayoutNetRunner.cs) implement this contract.
 
 internal static partial class Units
 {
