@@ -1,5 +1,8 @@
 using Microsoft.Extensions.DocumentExtraction;
 using Microsoft.Extensions.Documents;
+using System.Globalization;
+using OcriaNano.DocumentExtraction.Document;
+using OcriaNano.DocumentExtraction.Ocr;
 using OcriaNano.DocumentExtraction.Onnx;
 
 namespace OcriaNano.DocumentExtraction;
@@ -21,14 +24,35 @@ public sealed class OcriaNanoDocumentExtractionClient : DocumentExtractionClient
     {
         _options = options?.Clone() ?? new OcriaNanoOptions();
         _sessions = new Lazy<SessionPool>(CreateSessions, LazyThreadSafetyMode.ExecutionAndPublication);
+        _engine = new Lazy<OcriaEngine>(() => new OcriaEngine(Sessions, _options.Scripts), LazyThreadSafetyMode.ExecutionAndPublication);
     }
+
+    private readonly Lazy<OcriaEngine> _engine;
 
     /// <summary>Gets the media types this client reads.</summary>
     public static IReadOnlyList<string> SupportedMediaTypes { get; } =
-        ["application/pdf", "image/png", "image/jpeg", "image/webp", "image/bmp", "image/gif", "image/tiff"];
+        ["application/pdf", "image/png", "image/jpeg", "image/webp", "image/bmp"];
+
+    /// <summary>Per-call override for <see cref="OcriaNanoOptions.Ocr"/>: <c>auto</c>, <c>always</c> or <c>never</c>.</summary>
+    public const string OcrProperty = "ocria.ocr";
+
+    /// <summary>Per-call override for <see cref="OcriaNanoOptions.OcrDpi"/>.</summary>
+    public const string DpiProperty = "ocria.dpi";
+
+    /// <summary>Per-call override for <see cref="OcriaNanoOptions.EnableLayout"/>.</summary>
+    public const string LayoutProperty = "ocria.layout";
+
+    /// <summary>Per-call 1-based PDF page selection, such as <c>"1-3,5"</c>.</summary>
+    public const string PagesProperty = "ocria.pages";
 
     /// <inheritdoc />
-    public override Task<ExtractionDocument> ExtractAsync(
+    /// <remarks>
+    /// PDF pages keep their text layer unless the OCR gate (or <see cref="OcriaNanoOptions.Ocr"/>) sends them to OCR;
+    /// images are always OCR'd and treated as a page whose long side is 792 points, with pixel source coordinates.
+    /// <see cref="DocumentExtractionOptions.AdditionalProperties"/> may override settings per call with
+    /// <see cref="OcrProperty"/>, <see cref="DpiProperty"/>, <see cref="LayoutProperty"/> and <see cref="PagesProperty"/>.
+    /// </remarks>
+    public override async Task<ExtractionDocument> ExtractAsync(
         Stream document,
         string identifier,
         string mediaType,
@@ -44,7 +68,53 @@ public sealed class OcriaNanoDocumentExtractionClient : DocumentExtractionClient
             throw new NotSupportedException($"OCRia-nano reads {string.Join(", ", SupportedMediaTypes)}; got '{mediaType}'.");
         }
 
-        throw new NotImplementedException();
+        ExtractionSettings settings = Settings(_options, options?.AdditionalProperties);
+        byte[] bytes;
+        using (MemoryStream ms = new())
+        {
+            await document.CopyToAsync(ms, cancellationToken).ConfigureAwait(false);
+            bytes = ms.ToArray();
+        }
+
+        ExtractionPipeline pipeline = new(Sessions, _engine.Value);
+        return await Task.Run(
+            () => normalized == "application/pdf"
+                ? pipeline.ExtractPdf(bytes, identifier, settings, cancellationToken)
+                : pipeline.ExtractImage(bytes, identifier, settings, cancellationToken),
+            cancellationToken).ConfigureAwait(false);
+    }
+
+    internal static ExtractionSettings Settings(OcriaNanoOptions options, IReadOnlyDictionary<string, object?>? props)
+    {
+        OcrMode ocr = options.Ocr;
+        int dpi = options.OcrDpi;
+        bool layout = options.EnableLayout;
+        string? pages = null;
+        if (props is not null)
+        {
+            if (props.TryGetValue(OcrProperty, out object? o) && o is not null)
+            {
+                ocr = o is OcrMode m ? m : Enum.Parse<OcrMode>(Convert.ToString(o, CultureInfo.InvariantCulture)!, ignoreCase: true);
+            }
+
+            if (props.TryGetValue(DpiProperty, out object? d) && d is not null)
+            {
+                dpi = Convert.ToInt32(d, CultureInfo.InvariantCulture);
+            }
+
+            if (props.TryGetValue(LayoutProperty, out object? l) && l is not null)
+            {
+                layout = Convert.ToBoolean(l, CultureInfo.InvariantCulture);
+            }
+
+            if (props.TryGetValue(PagesProperty, out object? p) && p is not null)
+            {
+                pages = Convert.ToString(p, CultureInfo.InvariantCulture);
+            }
+        }
+
+        ArgumentOutOfRangeException.ThrowIfLessThan(dpi, 36, DpiProperty);
+        return new ExtractionSettings(ocr, dpi, layout, pages);
     }
 
     /// <inheritdoc />

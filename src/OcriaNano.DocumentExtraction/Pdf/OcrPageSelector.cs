@@ -44,6 +44,14 @@ internal sealed record PageComplexity(
 {
     public bool NeedsOcr => Reasons.Count > 0;
 
+    /// <summary>
+    /// Whether <see cref="OcrMode.Auto"/> OCRs the page. Unlike LiteParse, a page with a healthy text layer isn't OCR'd
+    /// just for an embedded figure or for being short: only when the text layer is unusable (scanned, blank, garbled,
+    /// invisible), text is drawn as vector outlines, or the text is sparse <em>and</em> an image may carry the content.
+    /// </summary>
+    public bool RunsOcr => Reasons.Any(r => r is not (OcrReason.EmbeddedImages or OcrReason.SparseText))
+        || (Reasons.Contains(OcrReason.EmbeddedImages) && Reasons.Contains(OcrReason.SparseText));
+
     /// <summary>True unless the page went to OCR as scanned, blank, garbled or an invisible layer (drives the merge's artifact filters).</summary>
     public bool HasNativeText => !Reasons.Any(r => r is OcrReason.Scanned or OcrReason.NoText or OcrReason.Garbled or OcrReason.InvisibleTextLayer or OcrReason.Forced);
 
