@@ -813,6 +813,7 @@ internal static partial class PdfUnits
         // Some(char), or null for a line break (PDFium generates one; PdfPig reports none, so a jump to another line stands in)
         List<Ch?> chars = [];
         Ch? prev = null;
+        Box4 prevAdv = default;
         foreach (Letter l in page.Letters)
         {
             string value = l.Value ?? "";
@@ -838,6 +839,11 @@ internal static partial class PdfUnits
 
             double size = l.PointSize;
             Ch ch = new() { C = cps, Pb = pb, Size = size, Bold = CharBold(l) };
+            Box4 adv = RotatePage(
+                new Box4(
+                    Math.Min(l.StartBaseLine.X, l.EndBaseLine.X) - cl, ct - Math.Max(l.StartBaseLine.Y, l.EndBaseLine.Y),
+                    Math.Max(l.StartBaseLine.X, l.EndBaseLine.X) - cl, ct - Math.Min(l.StartBaseLine.Y, l.EndBaseLine.Y)),
+                rot, w0, h0);
             if (!space && prev is not null)
             {
                 double sz = Math.Max(prev.Size, size);
@@ -851,9 +857,13 @@ internal static partial class PdfUnits
                 }
                 else
                 {
+                    // PDFium inserts spaces from the text advance, not the ink: tight glyph boxes leave side-bearing
+                    // gaps (wide in monospace fonts, around '.') that aren't spaces. Fall back to ink without advances.
+                    bool useAdv = horizontal ? adv.X1 > adv.X0 && prevAdv.X1 > prevAdv.X0 : adv.Y1 > adv.Y0 && prevAdv.Y1 > prevAdv.Y0;
+                    (Box4 a, Box4 b) = useAdv ? (prevAdv, adv) : (prev.Pb, pb);
                     double gap = horizontal
-                        ? (dx > 0 ? pb.X0 - prev.Pb.X1 : prev.Pb.X0 - pb.X1)
-                        : (dy > 0 ? pb.Y0 - prev.Pb.Y1 : prev.Pb.Y0 - pb.Y1);
+                        ? (dx > 0 ? b.X0 - a.X1 : a.X0 - b.X1)
+                        : (dy > 0 ? b.Y0 - a.Y1 : a.Y0 - b.Y1);
                     if (gap > SyntheticSpaceEm * sz)
                     {
                         chars.Add(new Ch { C = [' '], Pb = new Box4(prev.Pb.X1, prev.Pb.Y0, prev.Pb.X1, prev.Pb.Y1), Size = prev.Size });
@@ -863,6 +873,7 @@ internal static partial class PdfUnits
 
             chars.Add(ch);
             prev = space ? null : ch;
+            prevAdv = adv;
         }
 
         // raw runs between line breaks

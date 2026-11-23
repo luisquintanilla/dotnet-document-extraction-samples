@@ -99,6 +99,8 @@ public class ExtractionEndToEndTests
         // Same characters as PdfPig's text layer, in any order and modulo whitespace.
         string expected = Letters(pdf.GetPages().Select(p => p.Text));
         Assert.Equal(expected, Letters(ElementTexts(doc)));
+        // GetText() reads local payloads before children, so containers must not repeat their children's text.
+        Assert.Equal(expected, Letters([doc.GetText()]));
         Assert.All(doc.Sections.SelectMany(s => s.Elements), e => Assert.All(e.Sources, s => Assert.Null(s.GetRawRepresentation())));
     }
 
@@ -163,9 +165,12 @@ public class ExtractionEndToEndTests
         Assert.All(cells, c => Assert.True(c.RowSpan >= 1 && c.ColumnSpan >= 1));
         Assert.All(cells.Where(c => c.Content is not null), c => Assert.NotEmpty(c.Sources));
 
-        string md = Assert.IsType<TextContent>(doc.Content).Text;
+        string md = Assert.IsType<string>(doc.Metadata[ExtractionDocumentKeys.Markdown]);
         Assert.Contains("# ", md);
         Assert.Contains("| --- |", md);
+        Assert.Null(doc.Content);
+        Assert.All(doc.Sections, s => Assert.Null(s.Content));
+        Assert.All(tables, t => Assert.Null(t.Content));
     }
 
     [Fact]
@@ -176,7 +181,7 @@ public class ExtractionEndToEndTests
         ExtractionDocumentTableElement table = Assert.Single(doc.Sections.SelectMany(s => s.Elements).OfType<ExtractionDocumentTableElement>());
         ExtractionDocumentTableCell spanning = Assert.Single(table.Cells.Cast<ExtractionDocumentTableCell?>().OfType<ExtractionDocumentTableCell>(), c => c.ColumnSpan > 1);
         Assert.Equal("columnHeader", spanning.Role);
-        Assert.Contains("colspan=", Assert.IsType<TextContent>(doc.Content).Text);
+        Assert.Contains("colspan=", Assert.IsType<string>(doc.Metadata[ExtractionDocumentKeys.Markdown]));
     }
 
     [Fact]
@@ -204,6 +209,16 @@ public class ExtractionEndToEndTests
     }
 
     [Fact]
+    public async Task MonospaceTextKeepsItsPunctuationAttached()
+    {
+        // Consolas side bearings leave ink gaps around '.' that aren't spaces in the text advance.
+        ExtractionDocument doc = await Extract(TestModels.RepoFile("books", "pages", "tokens-explained-hero.pdf"), "application/pdf");
+        string text = doc.GetText();
+        Assert.Contains("Microsoft.ML.Tokenizers", text);
+        Assert.Contains("TiktokenTokenizer.CreateForModel(", text);
+    }
+
+    [Fact]
     public async Task UnsupportedMediaTypeThrows()
     {
         using OcriaNanoDocumentExtractionClient client = new();
@@ -217,4 +232,5 @@ internal static class ExtractionDocumentKeys
     public const string PagesOcred = "ocria.pagesOcred";
     public const string MeanConfidence = "ocria.meanConfidence";
     public const string Layout = "ocria.layout";
+    public const string Markdown = "ocria.markdown";
 }

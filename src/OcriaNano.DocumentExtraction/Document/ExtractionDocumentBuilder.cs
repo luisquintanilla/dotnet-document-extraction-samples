@@ -57,6 +57,7 @@ internal static class ExtractionDocumentBuilder
     public const string ScriptKey = "ocria.script";
     public const string LayoutKey = "ocria.layout";
     public const string ModelVersionKey = "ocria.modelVersion";
+    public const string MarkdownKey = "ocria.markdown";
     public const string ColumnHeaderRole = "columnHeader";
 
     /// <summary>The element role and heading level for a LayoutNet class.</summary>
@@ -91,7 +92,9 @@ internal static class ExtractionDocumentBuilder
                 page.CoordinateUnit,
                 ExtractionDocumentCoordinateOrigin.TopLeft);
             (List<ExtractionDocumentElement> elements, string md) = BuildPage(page, source);
-            ExtractionDocumentSection section = new(new TextContent(md));
+            // Content is a node's local payload, read by GetText() before its children, so containers stay empty
+            // and the rendered Markdown goes in the document's metadata instead.
+            ExtractionDocumentSection section = new();
             foreach (ExtractionDocumentElement e in elements)
             {
                 section.Elements.Add(e);
@@ -102,7 +105,8 @@ internal static class ExtractionDocumentBuilder
             confidences.AddRange(page.Sources.Where(u => u.Confidence.HasValue).Select(u => u.Confidence!.Value));
         }
 
-        ExtractionDocument doc = new(identifier, new TextContent(string.Join("\n\n", markdown.Where(m => m.Length > 0))));
+        ExtractionDocument doc = new(identifier);
+        doc.Metadata[MarkdownKey] = string.Join("\n\n", markdown.Where(m => m.Length > 0));
         foreach ((ExtractionDocumentSourcePage p, ExtractionDocumentSection sec) in built)
         {
             doc.SourcePages.Add(p);
@@ -200,7 +204,7 @@ internal static class ExtractionDocumentBuilder
         string md;
         if (b.Class == LayoutClass.FigureText)
         {
-            element = new ExtractionDocumentImageElement(new TextContent(text), text);
+            element = new ExtractionDocumentImageElement(null, text);
             md = text;
         }
         else
@@ -221,7 +225,7 @@ internal static class ExtractionDocumentBuilder
         List<MarkdownCell> cells = [.. g.Cells.Select(c => new MarkdownCell(
             c.R0, c.C0, c.R1 - c.R0 + 1, c.C1 - c.C0 + 1, c.Text.Trim(), head.Contains(c.R0)))];
         string md = MarkdownWriter.Table(new MarkdownTable(g.NRows, g.NCols, cells));
-        ExtractionDocumentTableElement table = new(new TextContent(md), g.NRows, g.NCols);
+        ExtractionDocumentTableElement table = new(null, g.NRows, g.NCols);
         foreach (GridCell c in g.Cells)
         {
             string text = c.Text.Trim();
