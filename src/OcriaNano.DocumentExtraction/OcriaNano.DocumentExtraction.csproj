@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- MEDE0001 / EXTEXP0019: the Documents and DocumentExtraction abstractions are experimental previews. -->
+    <NoWarn>$(NoWarn);MEDE0001;EXTEXP0019;CA1416</NoWarn>
+    <RootNamespace>OcriaNano.DocumentExtraction</RootNamespace>
+    <PackageId>OcriaNano.DocumentExtraction</PackageId>
+    <Version>0.1.0-local</Version>
+    <Description>A native .NET DocumentExtractionClient that runs LlamaIndex's OCRia-nano-1 ONNX models (text detection, script routing, recognition and the LayoutNet table/layout model) with ONNX Runtime. A C# port of LiteParse's glue code (Apache-2.0).</Description>
+    <Authors>dotnet-document-extraction-samples contributors</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>NOTICE.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The producer builds against the published packages only; 26600.4 (GetText) stays in samples and tests. -->
+    <PackageReference Include="Microsoft.Extensions.DocumentExtraction.Abstractions" Version="11.0.0-preview.1.26560.3" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.29.0" />
+    <!-- Explicit so ONNX Runtime's 9.0.0 dependency unifies upward to the stable (non-SYSLIB5001) tensor types. -->
+    <PackageReference Include="System.Numerics.Tensors" Version="10.0.15" />
+    <PackageReference Include="PdfPig" Version="0.1.15" />
+    <PackageReference Include="PDFtoImage" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="OcriaNano.DocumentExtraction.Tests" />
+    <None Include="NOTICE.md" Pack="true" PackagePath="\" />
+    <!-- One set of pins for the installer script and the runtime check. -->
+    <EmbeddedResource Include="..\..\tools\ocria\models.json" LogicalName="OcriaNano.DocumentExtraction.models.json" />
+  </ItemGroup>
+
+</Project>
