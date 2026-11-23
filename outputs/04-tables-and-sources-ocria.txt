@@ -1,0 +1,36 @@
+> dotnet run 04-tables-and-sources.cs -- ocria
+
+OCRia-nano-1 (ONNX, local): tokens-explained-hero.pdf
+
+Table: 6 rows x 5 columns
+  [0,0] (columnHeader) Tokenizer
+  [0,1] (columnHeader) Algorithm
+  [0,2] (columnHeader) .NET type
+  [0,3] (columnHeader) Where you
+  [0,4] (columnHeader) 'll see it
+  [1,3] (columnHeader) Model families
+  [1,4] (columnHeader) Typical use
+  [2,0] Tiktoken
+  [2,1] Optimized BPE
+  [2,2] TiktokenTokenizer
+  [2,3] GPT-4o, GPT-4, o1, o3
+  [2,4] Cost and context checks for OpenAI calls
+  [3,0] BPE
+  [3,1] Byte pair encoding
+  [3,2] BpeTokenizer
+  [3,3] GPT-2, RoBERTa
+  [3,4] Custom vocab and merges files
+  [4,0] SentencePiece (Llama)
+  [4,1] SentencePiece (BPE or Unigram)
+  [4,2] LlamaTokenizer
+  [4,3] Llama 2, T5, mBART
+  [4,4] Open-weight and multilingual models
+  [5,0] WordPiece (BERT)
+  [5,1] WordPiece
+  [5,2] BertTokenizer
+  [5,3] BERT, DistilBERT
+  [5,4] Embeddings and classification
+
+Where the headings are:
+  "Tokenizers in .NET"
+    page 1, Point: (58.02,60.93) (211.85,60.93) (211.85,74.47) (58.02,74.47)

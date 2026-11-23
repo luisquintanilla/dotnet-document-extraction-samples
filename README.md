@@ -36,7 +36,7 @@ Run each one from the repo root with `dotnet run <file>`.
 | [`02-swap-providers.cs`](02-swap-providers.cs) | Same code, any provider: `dotnet run 02-swap-providers.cs -- ollama` | The provider you pick |
 | [`03-compare.cs`](03-compare.cs) | Run every configured provider on one page and write a side-by-side report | Any providers |
 | [`04-tables-and-sources.cs`](04-tables-and-sources.cs) | Walk tables cell by cell and see where each element came from on the page | A provider that returns tables |
-| [`05-pipeline.cs`](05-pipeline.cs) | Dependency injection, logging, and custom middleware, including an OCR fallback for scanned PDFs | Ollama or an Azure provider |
+| [`05-pipeline.cs`](05-pipeline.cs) | Dependency injection, logging, and custom middleware, including an OCR fallback for scanned PDFs | OCRia-nano-1 models, Ollama, or an Azure provider |
 | [`06-ingest.cs`](06-ingest.cs) | Feed extraction into `Microsoft.Extensions.DataIngestion`: chunk, embed, search | Ollama (embeddings) |
 
 Captured runs for every sample are in [`outputs/`](outputs/), so you can see what each provider
@@ -51,6 +51,7 @@ with a message instead of failing.
 | Name | Provider | Runs | Good for | Settings |
 |---|---|---|---|---|
 | `pdfpig` | PdfPig | Locally, in process | PDFs with a text layer | None |
+| `ocria` | [OCRia-nano-1](https://huggingface.co/llamaindex/OCRia-nano-1) (ONNX, local) | Locally, in process, on CPU | Scans, images, and layout (headings, tables) with no service or GPU | `OCRIA_MODEL_DIR` (optional); models from [`tools/ocria`](#try-ocria-nano-1-locally) |
 | `ollama` | Vision language model (any `IChatClient`) | Locally with Ollama, or any hosted model | Scans and images, when you can review the output | `OLLAMA_ENDPOINT`, `OLLAMA_VISION_MODEL`, `OLLAMA_STRUCTURED` |
 | `docintel` | Azure Document Intelligence | Azure | Layout, tables, and page coordinates | `AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT` |
 | `cu` | Azure Content Understanding | Azure | Layout plus analyzers you can customize | `AZURE_CONTENT_UNDERSTANDING_ENDPOINT`, `AZURE_CONTENT_UNDERSTANDING_ANALYZER` |
@@ -69,6 +70,41 @@ dotnet run 06-ingest.cs
 
 The defaults are `http://localhost:11434`, `qwen3.5:4b`, and `embeddinggemma`. Override them with
 `OLLAMA_ENDPOINT`, `OLLAMA_VISION_MODEL`, and `OLLAMA_EMBEDDING_MODEL`.
+
+## Try OCRia-nano-1 locally
+
+[`src/OcriaNano.DocumentExtraction`](src/OcriaNano.DocumentExtraction) is a
+`DocumentExtractionClient` that runs LlamaIndex's OCRia-nano-1 models with ONNX Runtime, in
+process. It keeps a PDF's text layer where there is one, OCRs the pages that need it, and runs the
+layout model to find headings, headers and footers, lists, and tables (with merged cells). Each
+element carries its page polygon. The C# code is a port of the pre- and post-processing in
+[LiteParse](https://github.com/run-llama/liteparse) (Apache-2.0; see
+[`NOTICE.md`](src/OcriaNano.DocumentExtraction/NOTICE.md)).
+
+Download the models once (about 18 MB for Latin scripts), then run any sample with `ocria`:
+
+```bash
+pwsh tools/ocria/Get-OcriaModels.ps1 -AcceptLicense    # add -Scripts cjk,rtl,world for other scripts
+dotnet run 02-swap-providers.cs -- ocria
+```
+
+The models go to the same folder LiteParse uses (`lit models pull ocria-nano` works too), or to
+`OCRIA_MODEL_DIR`. The script checks every file against a pinned SHA-256. Without the models, the
+samples skip `ocria` with a message.
+
+> [!IMPORTANT]
+> The OCRia-nano-1 weights aren't in this repo and aren't MIT. LlamaIndex publishes them under a
+> [modified Open RAIL-M license](https://huggingface.co/llamaindex/OCRia-nano-1/blob/v1.0.0/LICENSE):
+> free for research, personal use, and organizations under $2M in revenue or funding; above that,
+> or for products that compete with LlamaParse, you need a commercial license from LlamaIndex.
+> Read it before you use the models. The download script asks you to accept it.
+
+**Why not just export to ONNX and call the model?** The models already are ONNX, and the client
+loads them unchanged. What the graphs can't do is everything around them: turning the detection
+map into rotated line boxes, cropping and warping each line, picking which recognizer to run,
+reading the PDF text layer, building the layout model's per-word features from fonts and ruling
+lines, and decoding its pair scores into paragraphs and table grids. That glue is the C# in
+`src/OcriaNano.DocumentExtraction`.
 
 ## Try the Azure providers (optional)
 
@@ -116,4 +152,6 @@ and code, so you can see how each provider handles real structure. Every book al
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). The OCRia port in `src/OcriaNano.DocumentExtraction` includes code adapted from
+LiteParse under Apache-2.0 ([`NOTICE.md`](src/OcriaNano.DocumentExtraction/NOTICE.md)). The
+OCRia-nano-1 models are licensed separately, as described [above](#try-ocria-nano-1-locally).
