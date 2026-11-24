@@ -33,11 +33,11 @@ jobs:
         run: |
           mkdir -p inputs/parsebench
           python - <<'PY'
-          import json, hashlib, urllib.request
+          import json, hashlib, urllib.parse, urllib.request
           corpus = json.load(open("validation/parsebench/corpus.json"))
           base = f"https://huggingface.co/datasets/{corpus['dataset']}/resolve/{corpus['revision']}/"
           for doc in corpus["documents"]:
-              data = urllib.request.urlopen(base + doc["path"] + ".pdf").read()
+              data = urllib.request.urlopen(base + urllib.parse.quote(doc["path"] + ".pdf")).read()
               assert hashlib.sha256(data).hexdigest() == doc["pdfSha256"], doc["id"]
               open(f"inputs/parsebench/{doc['id']}.pdf", "wb").write(data)
           PY
