@@ -114,6 +114,18 @@ public class GarbleTests
         Assert.False(Garble.PageIsGarbled(page));
     }
 
+    [Fact]
+    public void TableOfCodesAndAbbreviationsIsNotGarbled()
+    {
+        // From ParseBench dense_table_002: VINs and all-caps column codes are vowel-poor but readable.
+        string[] header = ["POLK VIN", "YEAR MAKE", "MODEL", "TYPE DRIVE CYL CID FUEL CARB IND VTI SYMSYM SYM", "SYM SYMYMM"];
+        string[] jeep = ["1C4SJVDT0N", "2022JEEP WAGONEER SERIES III", "UT", "44", "8", "348 G", "F", "P", "Y", "07", "11", "YYY"];
+        string[] ram = ["1C6RR6FM0G", "2016RAM", "1500 ST", "PK", "42", "6", "183 D", "F", "H", "T", "11", "14", "03", "06", "10", "YYY"];
+        List<TextItem> page = Page(With("Arial", [.. header, .. Enumerable.Repeat(jeep, 5).SelectMany(r => r), .. Enumerable.Repeat(ram, 15).SelectMany(r => r)]));
+        Assert.Equal(GarbledKind.None, Garble.Scope(page).Kind);
+        Assert.False(Garble.PageIsGarbled(page));
+    }
+
     [Theory]
     [InlineData("BadFont")]
     [InlineData(null)]

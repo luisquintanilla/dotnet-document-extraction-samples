@@ -2,7 +2,7 @@
   {
     "provider": "pdfpig",
     "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
-    "seconds": 0.2,
+    "seconds": 0.1,
     "truthTokens": 17,
     "shape": {
       "topSections": 1,
@@ -167,7 +167,7 @@
   {
     "provider": "pdfpig",
     "doc": "dense_tables_dense_table_002",
-    "seconds": 0.3,
+    "seconds": 0.2,
     "truthTokens": 285,
     "shape": {
       "topSections": 1,
@@ -222,7 +222,7 @@
   {
     "provider": "pdfpig",
     "doc": "financial_tables_10k-2026-08-13_page1",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 169,
     "shape": {
       "topSections": 1,
@@ -277,7 +277,7 @@
   {
     "provider": "pdfpig",
     "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 38,
     "shape": {
       "topSections": 1,
@@ -332,7 +332,7 @@
   {
     "provider": "pdfpig",
     "doc": "headings_case-0001-6bba8f14b5f6",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 23,
     "shape": {
       "topSections": 1,
@@ -442,7 +442,7 @@
   {
     "provider": "pdfpig",
     "doc": "tables_1_timetable__1__page2",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 100,
     "shape": {
       "topSections": 1,
@@ -552,7 +552,7 @@
   {
     "provider": "ocria",
     "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
-    "seconds": 3.3,
+    "seconds": 3.2,
     "truthTokens": 17,
     "shape": {
       "topSections": 1,
@@ -662,7 +662,7 @@
   {
     "provider": "ocria",
     "doc": "complex_table_headers_complex_header_006",
-    "seconds": 0.5,
+    "seconds": 0.6,
     "truthTokens": 195,
     "shape": {
       "topSections": 1,
@@ -717,7 +717,7 @@
   {
     "provider": "ocria",
     "doc": "dense_tables_dense_table_002",
-    "seconds": 7.1,
+    "seconds": 4,
     "truthTokens": 285,
     "shape": {
       "topSections": 1,
@@ -734,38 +734,38 @@
     "strategies": {
       "A": {
         "strategy": "Two-level loop over text elements",
-        "chars": 8258,
-        "truthRecall": 0.253,
+        "chars": 14313,
+        "truthRecall": 0.986,
         "shareOfGetText": 1,
-        "repeatedLines": 2
+        "repeatedLines": 0
       },
       "B": {
         "strategy": "EnumerateContent() + text-element filter",
-        "chars": 8258,
-        "truthRecall": 0.253,
+        "chars": 14313,
+        "truthRecall": 0.986,
         "shareOfGetText": 1,
-        "repeatedLines": 2
+        "repeatedLines": 0
       },
       "C": {
         "strategy": "Recursive walker without image text",
-        "chars": 8258,
-        "truthRecall": 0.253,
+        "chars": 14313,
+        "truthRecall": 0.986,
         "shareOfGetText": 1,
-        "repeatedLines": 2
+        "repeatedLines": 0
       },
       "D": {
         "strategy": "EnumerateContent() + GetText() per element",
-        "chars": 8256,
-        "truthRecall": 0.253,
+        "chars": 14311,
+        "truthRecall": 0.986,
         "shareOfGetText": 1,
-        "repeatedLines": 2
+        "repeatedLines": 0
       },
       "E": {
         "strategy": "document.GetText()",
-        "chars": 8256,
-        "truthRecall": 0.253,
+        "chars": 14311,
+        "truthRecall": 0.986,
         "shareOfGetText": 1,
-        "repeatedLines": 2
+        "repeatedLines": 0
       }
     }
   },
@@ -827,7 +827,7 @@
   {
     "provider": "ocria",
     "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
-    "seconds": 1.1,
+    "seconds": 2.2,
     "truthTokens": 38,
     "shape": {
       "topSections": 1,
@@ -882,7 +882,7 @@
   {
     "provider": "ocria",
     "doc": "headings_case-0001-6bba8f14b5f6",
-    "seconds": 1,
+    "seconds": 3.6,
     "truthTokens": 23,
     "shape": {
       "topSections": 1,
@@ -937,7 +937,7 @@
   {
     "provider": "ocria",
     "doc": "layout_annotated__02775267_p3",
-    "seconds": 0.3,
+    "seconds": 1.1,
     "truthTokens": 508,
     "shape": {
       "topSections": 1,
@@ -992,7 +992,7 @@
   {
     "provider": "ocria",
     "doc": "tables_1_timetable__1__page2",
-    "seconds": 0.5,
+    "seconds": 1.7,
     "truthTokens": 100,
     "shape": {
       "topSections": 1,
@@ -1047,7 +1047,7 @@
   {
     "provider": "ocria",
     "doc": "text_text_dense__baoutou",
-    "seconds": 3.6,
+    "seconds": 7.3,
     "truthTokens": 560,
     "shape": {
       "topSections": 1,

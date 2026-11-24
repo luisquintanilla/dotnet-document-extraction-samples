@@ -87,6 +87,45 @@ internal static class Garble
         return (letters, vowels);
     }
 
+    /// <summary>
+    /// <see cref="CountLettersAndVowels"/> over the words that read as prose. Codes are skipped: words with a digit
+    /// (VINs, part numbers) and all-caps words of up to four letters (CYL, SYM, PD). A table of them is vowel-poor
+    /// without being garbled. Deviation from LiteParse, which counts every word.
+    /// </summary>
+    internal static (int Letters, int Vowels) CountProseLettersAndVowels(string text)
+    {
+        int letters = 0, vowels = 0;
+        foreach (string word in text.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries))
+        {
+            if (word.Any(char.IsDigit))
+            {
+                continue;
+            }
+
+            int n = 0;
+            bool upper = true;
+            foreach (char c in word)
+            {
+                if (char.IsLetter(c))
+                {
+                    n++;
+                    upper &= char.IsUpper(c);
+                }
+            }
+
+            if (n <= 4 && upper)
+            {
+                continue;
+            }
+
+            (int l, int v) = CountLettersAndVowels(word);
+            letters += l;
+            vowels += v;
+        }
+
+        return (letters, vowels);
+    }
+
     internal static bool RatioIsGarbled(int letters, int vowels) => letters >= GarbleMinLetters && vowels * 5 < letters;
 
     private static bool IntrusionsAreGarbled(int script, int intrusions)
@@ -165,7 +204,7 @@ internal static class Garble
                 Add(perFontTok, key, j, m);
             }
 
-            (int l, int v) = CountLettersAndVowels(it.Text);
+            (int l, int v) = CountProseLettersAndVowels(it.Text);
             totalLetters += l;
             totalVowels += v;
             Add(perFont, key, l, v);

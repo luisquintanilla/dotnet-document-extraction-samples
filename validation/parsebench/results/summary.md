@@ -6,7 +6,7 @@ much of what a provider returned each reading strategy sees, not how good the pr
 | Provider | Pages | Nested pages | A | B | C | D | E |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | PdfPig (local, text layer) | 10/10 | 0 | 0.81 | 0.81 | 0.81 | 0.81 | 0.81 |
-| OCRia-nano-1 (ONNX, local) | 10/10 | 0 | 0.67 | 0.67 | 0.85 | 0.85 | 0.85 |
+| OCRia-nano-1 (ONNX, local) | 10/10 | 0 | 0.75 | 0.75 | 0.92 | 0.92 | 0.92 |
 | Vision language model (Ollama) | 9/10 | 0 | 0.83 | 0.83 | 0.83 | 0.83 | 0.83 |
 | Mistral Document AI | 10/10 | 0 | 0.76 | 0.76 | 0.76 | 0.76 | 0.76 |
 | Azure Document Intelligence | 9/10 | 8 | 0.06 | 0.50 | 0.77 | 0.85 | 0.85 |
@@ -27,7 +27,7 @@ skips image text. D: `EnumerateContent()` + `GetText()` per element. E: `documen
 | `charts__Web_version__E-Government_Survey_2024_1392024_p101` | 1 → 1 | 0.471 → 0.941 | 1 → 1 | 0.294 → 0.294 | 0.059 → 1 | 0.059 → 1 |
 | `complex_table_headers_complex_header_003` | 0.989 → 0.989 | 0.605 → 0.993 | 0.811 → 0.811 | 0.982 → 0.982 | 0.018 → 0.987 | 0.018 → 0.991 |
 | `complex_table_headers_complex_header_006` | 0.979 → 0.979 | 0.256 → 0.979 | 0.533 → 0.533 | 0.964 → 0.964 | failed | 0.108 → 0.974 |
-| `dense_tables_dense_table_002` | 0.93 → 0.93 | 0.253 → 0.253 | failed | 0 → 0 | 0.263 → 0.263 | 0 → 0.744 |
+| `dense_tables_dense_table_002` | 0.93 → 0.93 | 0.986 → 0.986 | failed | 0 → 0 | 0.263 → 0.263 | 0 → 0.744 |
 | `financial_tables_10k-2026-08-13_page1` | 0.994 → 0.994 | 0.994 → 0.994 | 0.988 → 0.988 | 0.988 → 0.988 | 0 → 0.994 | 0 → 0.994 |
 | `forms_blank__australia--02_WA-DLA1--p2__blank` | 0.868 → 0.868 | 0.868 → 0.868 | 0.868 → 0.868 | 0.868 → 0.868 | 0 → 0.868 | 0 → 0.868 |
 | `headings_case-0001-6bba8f14b5f6` | 1 → 1 | 1 → 1 | 1 → 1 | 1 → 1 | 0.043 → 1 | 0.217 → 1 |

@@ -5,11 +5,11 @@
   "datasetRevision": "c300dcf475574f027dbaad0e15f64f6c9b73b830",
   "providers": {
     "pdfpig": {
-      "runUtc": "2026-11-23T23:16:54Z",
+      "runUtc": "2026-11-24T01:17:55Z",
       "settings": "text layer, DocstrumBoundingBoxes"
     },
     "ocria": {
-      "runUtc": "2026-11-23T23:16:35Z",
+      "runUtc": "2026-11-24T01:17:29Z",
       "settings": "OCRia-nano-1 latin, OcrMode.Auto"
     },
     "ollama": {

@@ -65,8 +65,8 @@ keeps the rest. Pages that a hosted service throttles (HTTP 429) are retried wit
 - **OCRia-nano-1** (local ONNX) keeps sections flat but returns detected tables as table elements with cells, so the
   text-only strategies (A, B) miss the table text and its A column sits below E. It reads the text layer where one
   exists, and OCRs pages without one: it recovers `text_text_dense__baoutou` (0.96 against 0 for PdfPig). On
-  `dense_tables_dense_table_002` its OCR gate sends the page to OCR, which re-reads the low-resolution scan instead of
-  the text layer, and it scores 0.25 against 0.93 for PdfPig.
+  `dense_tables_dense_table_002` (a table of VINs and short all-caps codes) its garble check ignores digit-bearing and
+  short all-caps tokens when it measures vowels, so it keeps the text layer and scores 0.99 against 0.93 for PdfPig.
 - A low number in *both* A and E is about extraction, not reading. Examples:
   - `dense_tables_dense_table_002` is a rotated, low-resolution scan. Document Intelligence returned it as flat lines
     with no table.
