@@ -52,7 +52,8 @@ foreach (string reference in Directory.GetFiles(Path.Combine(here, "reference"),
     if (name.StartsWith("parsebench__", StringComparison.Ordinal))
     {
         HashSet<string> truth = GroundTruthTokens(Path.Combine(corpusDir, $"{name["parsebench__".Length..]}.test.json"));
-        truthCells = $" {Ratio(truth.Count(theirs.Contains), truth.Count):0.000} | {Ratio(truth.Count(mine.Contains), truth.Count):0.000} |";
+        HashSet<string> theirsRaw = Tokens(theirText, keepImageLinks: true), mineRaw = Tokens(ours, keepImageLinks: true);
+        truthCells = $" {Ratio(truth.Count(theirsRaw.Contains), truth.Count):0.000} | {Ratio(truth.Count(mineRaw.Contains), truth.Count):0.000} |";
     }
 
     rows.Add($"| {name} | {recall:0.000} | {precision:0.000} | {order:0.000} |{truthCells}");
@@ -94,14 +95,15 @@ string? Input(string name)
     };
 }
 
-static List<string> Words(string text)
+static List<string> Words(string text, bool keepImageLinks = false)
 {
-    text = Regex.Replace(text, @"!\[[^\]]*\]\([^)]*\)|<[^>]+>", " ");
+    text = Regex.Replace(text, keepImageLinks ? "<[^>]+>" : @"!\[[^\]]*\]\([^)]*\)|<[^>]+>", " ");
     return [.. Regex.Matches(text.ToLowerInvariant(), @"\p{IsCJKUnifiedIdeographs}|[\p{L}\p{N}-[\p{IsCJKUnifiedIdeographs}]]+").Select(m => m.Value)];
 }
 
 // The probe's token set: words of two or more characters, numbers, and ideographs.
-static HashSet<string> Tokens(string text) => Words(text)
+// keepImageLinks matches the probe exactly, which the ground truth is scored with.
+static HashSet<string> Tokens(string text, bool keepImageLinks = false) => Words(text, keepImageLinks)
     .Where(t => t.Length >= 2 || char.IsDigit(t[0]) || t[0] >= '\u4e00')
     .ToHashSet();
 
@@ -127,7 +129,7 @@ static HashSet<string> GroundTruthTokens(string path)
 {
     var tokens = new HashSet<string>();
     var root = JsonNode.Parse(File.ReadAllText(path))!;
-    if (root["expected_markdown"]?.GetValue<string>() is { } markdown) tokens.UnionWith(Tokens(markdown));
+    if (root["expected_markdown"]?.GetValue<string>() is { } markdown) tokens.UnionWith(Tokens(markdown, keepImageLinks: true));
     if (root["test_rules"] is JsonArray rules) Collect(rules, null);
     return tokens;
 
@@ -142,7 +144,7 @@ static HashSet<string> GroundTruthTokens(string path)
                 foreach (var item in array) Collect(item, key);
                 break;
             case JsonValue value when value.TryGetValue(out string? s) && key is not ("type" or "id" or "tags" or "rule_id" or "page"):
-                tokens.UnionWith(Tokens(s));
+                tokens.UnionWith(Tokens(s, keepImageLinks: true));
                 break;
         }
     }

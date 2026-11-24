@@ -29,7 +29,7 @@ Words are lowercased runs of letters and digits (CJK: one per ideograph); Markdo
 | parsebench__financial_tables_10k-2026-08-13_page1 | 1.000 | 1.000 | 0.735 | 0.994 | 0.994 |
 | parsebench__forms_blank__australia--02_WA-DLA1--p2__blank | 0.997 | 0.993 | 0.688 | 0.868 | 0.868 |
 | parsebench__headings_case-0001-6bba8f14b5f6 | 1.000 | 1.000 | 0.999 | 1.000 | 1.000 |
-| parsebench__layout_annotated__02775267_p3 | 0.990 | 0.974 | 0.815 | 0.609 | 0.611 |
+| parsebench__layout_annotated__02775267_p3 | 0.990 | 0.974 | 0.815 | 0.602 | 0.602 |
 | parsebench__tables_1_timetable__1__page2 | 1.000 | 0.676 | 0.975 | 0.710 | 0.900 |
-| parsebench__text_text_dense__baoutou | 1.000 | 1.000 | 0.468 | 0.985 | 0.985 |
+| parsebench__text_text_dense__baoutou | 1.000 | 1.000 | 0.468 | 0.957 | 0.957 |
 | **Mean** | **0.946** | **0.917** | **0.858** | | |
