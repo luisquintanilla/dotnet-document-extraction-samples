@@ -17,6 +17,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
     <!-- Lift the abstractions to the #7963 build (GetText/EnumerateContent), as the samples do. -->
     <PackageReference Include="Microsoft.Extensions.Documents.Abstractions" Version="11.0.0-preview.1.26600.4" />
+    <!-- Shapes Arabic when rendering non-Latin test pages; matches the SkiaSharp that PDFtoImage brings. -->
+    <PackageReference Include="SkiaSharp.HarfBuzz" Version="3.119.0" />
   </ItemGroup>
 
   <ItemGroup>
