@@ -45,12 +45,16 @@ public sealed class OcriaNanoDocumentExtractionClient : DocumentExtractionClient
     /// <summary>Per-call 1-based PDF page selection, such as <c>"1-3,5"</c>.</summary>
     public const string PagesProperty = "ocria.pages";
 
+    /// <summary>Per-call override for <see cref="OcriaNanoOptions.IncludeFigureImages"/>.</summary>
+    public const string FigureImagesProperty = "ocria.figureImages";
+
     /// <inheritdoc />
     /// <remarks>
     /// PDF pages keep their text layer unless the OCR gate (or <see cref="OcriaNanoOptions.Ocr"/>) sends them to OCR;
     /// images are always OCR'd and treated as a page whose long side is 792 points, with pixel source coordinates.
     /// <see cref="DocumentExtractionOptions.AdditionalProperties"/> may override settings per call with
-    /// <see cref="OcrProperty"/>, <see cref="DpiProperty"/>, <see cref="LayoutProperty"/> and <see cref="PagesProperty"/>.
+    /// <see cref="OcrProperty"/>, <see cref="DpiProperty"/>, <see cref="LayoutProperty"/>, <see cref="PagesProperty"/>
+    /// and <see cref="FigureImagesProperty"/>.
     /// </remarks>
     public override async Task<ExtractionDocument> ExtractAsync(
         Stream document,
@@ -89,6 +93,7 @@ public sealed class OcriaNanoDocumentExtractionClient : DocumentExtractionClient
         OcrMode ocr = options.Ocr;
         int dpi = options.OcrDpi;
         bool layout = options.EnableLayout;
+        bool figures = options.IncludeFigureImages;
         string? pages = null;
         if (props is not null)
         {
@@ -111,10 +116,15 @@ public sealed class OcriaNanoDocumentExtractionClient : DocumentExtractionClient
             {
                 pages = Convert.ToString(p, CultureInfo.InvariantCulture);
             }
+
+            if (props.TryGetValue(FigureImagesProperty, out object? f) && f is not null)
+            {
+                figures = Convert.ToBoolean(f, CultureInfo.InvariantCulture);
+            }
         }
 
         ArgumentOutOfRangeException.ThrowIfLessThan(dpi, 36, DpiProperty);
-        return new ExtractionSettings(ocr, dpi, layout, pages);
+        return new ExtractionSettings(ocr, dpi, layout, pages, Math.Max(1, options.MaxDegreeOfParallelism), figures);
     }
 
     /// <inheritdoc />

@@ -10,10 +10,10 @@ public class ExtractionEndToEndTests
 {
     public static TheoryData<string> Books => ["agents-propose-tools-decide", "tensors-in-ten-pages", "tokens-explained"];
 
-    private static async Task<ExtractionDocument> Extract(string path, string mediaType, DocumentExtractionOptions? options = null)
+    private static async Task<ExtractionDocument> Extract(string path, string mediaType, DocumentExtractionOptions? options = null, OcriaNanoOptions? clientOptions = null)
     {
         TestModels.Require();
-        using OcriaNanoDocumentExtractionClient client = new();
+        using OcriaNanoDocumentExtractionClient client = new(clientOptions);
         await using FileStream fs = File.OpenRead(path);
         return await client.ExtractAsync(fs, Path.GetFileName(path), mediaType, options, TestContext.Current.CancellationToken);
     }
@@ -125,6 +125,16 @@ public class ExtractionEndToEndTests
     }
 
     [Fact]
+    public async Task ParallelPagesMatchSequentialPages()
+    {
+        string path = Book("tokens-explained-scanned");
+        ExtractionDocument one = await Extract(path, "application/pdf");
+        ExtractionDocument four = await Extract(path, "application/pdf", clientOptions: new() { MaxDegreeOfParallelism = 4 });
+        Assert.Equal(one.Metadata[ExtractionDocumentKeys.Markdown], four.Metadata[ExtractionDocumentKeys.Markdown]);
+        Assert.Equal(ElementTexts(one), ElementTexts(four));
+    }
+
+    [Fact]
     public async Task ImageIsOcrdInPixels()
     {
         string png = TestModels.RepoFile("books", "pages", "tokens-explained-hero.png");
@@ -142,6 +152,59 @@ public class ExtractionEndToEndTests
         double recall = WordRecall(PdfWords(pdf), string.Join("\n", ElementTexts(doc)));
         TestContext.Current.TestOutputHelper?.WriteLine($"tokens-explained-hero.png word recall: {recall:0.0000}");
         Assert.True(recall >= 0.95, $"word recall {recall:0.0000}");
+    }
+
+    [Fact]
+    public async Task TiltedScanIsDeskewed()
+    {
+        string png = TestModels.RepoFile("books", "pages", "tokens-explained-hero.png");
+        ExtractionDocument upright = await Extract(png, "image/png");
+        string tilted = Path.Combine(Path.GetTempPath(), $"ocria-tilted-{Guid.NewGuid():N}.png");
+        try
+        {
+            using (SkiaSharp.SKBitmap src = SkiaSharp.SKBitmap.Decode(png))
+            using (SkiaSharp.SKBitmap dst = new(src.Width, src.Height))
+            {
+                using (SkiaSharp.SKCanvas canvas = new(dst))
+                {
+                    canvas.Clear(SkiaSharp.SKColors.White);
+                    canvas.RotateDegrees(4, src.Width / 2f, src.Height / 2f);
+                    canvas.DrawBitmap(src, 0, 0);
+                }
+
+                using FileStream fs = File.Create(tilted);
+                dst.Encode(fs, SkiaSharp.SKEncodedImageFormat.Png, 100);
+            }
+
+            ExtractionDocument doc = await Extract(tilted, "image/png");
+            string[] a = [.. Words(string.Join("\n", ElementTexts(upright)))], b = [.. Words(string.Join("\n", ElementTexts(doc)))];
+            double order = 2.0 * Lcs(a, b) / (a.Length + b.Length);
+            TestContext.Current.TestOutputHelper?.WriteLine($"in-order word agreement with the upright scan: {order:0.0000}; tables {Tables(upright)} vs {Tables(doc)}");
+            Assert.True(order >= 0.9, $"in-order word agreement {order:0.0000}");
+            Assert.Equal(Tables(upright), Tables(doc));
+        }
+        finally
+        {
+            File.Delete(tilted);
+        }
+
+        static int Tables(ExtractionDocument d) => d.Sections.SelectMany(s => s.Elements).OfType<ExtractionDocumentTableElement>().Count();
+    }
+
+    private static int Lcs(string[] a, string[] b)
+    {
+        int[] prev = new int[b.Length + 1], cur = new int[b.Length + 1];
+        foreach (string x in a)
+        {
+            for (int j = 1; j <= b.Length; j++)
+            {
+                cur[j] = x == b[j - 1] ? prev[j - 1] + 1 : Math.Max(prev[j], cur[j - 1]);
+            }
+
+            (prev, cur) = (cur, prev);
+        }
+
+        return prev[b.Length];
     }
 
     [Fact]

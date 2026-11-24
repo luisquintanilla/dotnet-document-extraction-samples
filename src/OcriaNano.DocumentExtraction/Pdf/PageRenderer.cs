@@ -24,6 +24,15 @@ internal static class PageRenderer
     /// <summary>Renders a page at 150 DPI for LayoutNet's rule features.</summary>
     public static Bgra32Image RenderForLayout(byte[] pdf, int pageIndex) => Render(pdf, pageIndex, Units.RulesDpi);
 
+    /// <summary>Renders a page as a bitmap the caller owns.</summary>
+    public static SKBitmap RenderBitmap(byte[] pdf, int pageIndex, int dpi)
+    {
+        lock (Gate)
+        {
+            return PDFtoImage.Conversion.ToImage(pdf, pageIndex, password: null, options: new(Dpi: dpi));
+        }
+    }
+
     private static Bgra32Image Render(byte[] pdf, int pageIndex, int dpi)
     {
         lock (Gate)

@@ -53,4 +53,24 @@ public class PageTests
     [Fact]
     public void BidiReordersHebrewVisualToLogical()
         => Assert.Equal("שלום", Bidi.VisualToLogical("םולש"));
+
+    [Fact]
+    public void LongTiltedLinesSetThePageSkewAndShortOnesDont()
+    {
+        static OcrLine Line(double deg, float len, float y)
+        {
+            (double s, double c) = Math.SinCos(deg * Math.PI / 180);
+            PointF a = new(50, y), b = new(50 + (float)(len * c), y + (float)(len * s));
+            PointF[] q = [a, b, new(b.X, b.Y + 20), new(a.X, a.Y + 20)];
+            return new OcrLine("text", BoxF.Bounds(q), q, 0.9f, 0, "latin");
+        }
+
+        OcrLine[] tilted = [Line(5, 400, 100), Line(5, 500, 200), Line(5, 300, 300), Line(0, 40, 400)];
+        Assert.Equal(5, Deskew.PageSkew(tilted)!.Value, 3);
+        Assert.Null(Deskew.PageSkew(tilted[..2]));
+        Assert.Null(Deskew.PageSkew([Line(0.1, 400, 100), Line(0.1, 400, 200), Line(0.1, 400, 300)]));
+
+        OcrLine up = Deskew.Upright(tilted[0], 500, 500, 5);
+        Assert.Equal(up.Quad[0].Y, up.Quad[1].Y, 2);
+    }
 }

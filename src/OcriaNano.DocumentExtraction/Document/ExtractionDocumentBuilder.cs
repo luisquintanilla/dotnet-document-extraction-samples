@@ -47,6 +47,15 @@ internal sealed class PageResult
 
     /// <summary>Gets the OCR scripts read on the page.</summary>
     public IReadOnlyList<string> Scripts { get; init; } = [];
+
+    /// <summary>Gets the tilt in degrees the page's OCR lines were turned upright by before layout, or null.</summary>
+    public double? Deskew { get; init; }
+
+    /// <summary>Gets the point (in page points) the deskew turned about.</summary>
+    public (double X, double Y) DeskewCenter { get; init; }
+
+    /// <summary>Gets or sets PNG crops of the page's FigureText blocks, when figure images were asked for.</summary>
+    public IReadOnlyDictionary<ModelBlock, byte[]> FigureImages { get; set; } = new Dictionary<ModelBlock, byte[]>();
 }
 
 /// <summary>Turns per-page units, blocks and tables into an <see cref="ExtractionDocument"/> with Markdown content (plan §5.7).</summary>
@@ -204,7 +213,8 @@ internal static class ExtractionDocumentBuilder
         string md;
         if (b.Class == LayoutClass.FigureText)
         {
-            element = new ExtractionDocumentImageElement(null, text);
+            DataContent? png = page.FigureImages.TryGetValue(b, out byte[]? bytes) ? new DataContent(bytes, "image/png") : null;
+            element = new ExtractionDocumentImageElement(png, text);
             md = text;
         }
         else
@@ -238,7 +248,14 @@ internal static class ExtractionDocumentBuilder
             table.Cells[c.R0, c.C0] = cell;
         }
 
-        table.Sources.Add(new ExtractionDocumentSourceReference(source, Polygon(UnitSource.Rect(t.BBox).Polygon, page.SourceScale), null));
+        // Table boxes are in the upright frame on a deskewed page; turn them back onto the page image.
+        IReadOnlyList<(double X, double Y)> box = UnitSource.Rect(t.BBox).Polygon;
+        if (page.Deskew is double deg)
+        {
+            box = Ocr.Deskew.RotateBack(box, page.DeskewCenter.X, page.DeskewCenter.Y, deg);
+        }
+
+        table.Sources.Add(new ExtractionDocumentSourceReference(source, Polygon(box, page.SourceScale), null));
         return (table, md);
     }
 

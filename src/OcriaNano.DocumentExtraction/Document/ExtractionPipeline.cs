@@ -12,7 +12,7 @@ using UglyToad.PdfPig.Content;
 namespace OcriaNano.DocumentExtraction.Document;
 
 /// <summary>Per-call settings: the client's options with <c>ocria.*</c> overrides applied.</summary>
-internal sealed record ExtractionSettings(OcrMode Ocr, int Dpi, bool Layout, string? Pages);
+internal sealed record ExtractionSettings(OcrMode Ocr, int Dpi, bool Layout, string? Pages, int MaxDegreeOfParallelism = 1, bool FigureImages = false);
 
 /// <summary>Runs one document through the OCR gate, OCR, merge, LayoutNet and the builder.</summary>
 internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engine)
@@ -27,11 +27,33 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
     {
         using PdfDocument pdf = PdfDocument.Open(bytes);
         IReadOnlyList<int> numbers = PageSelection.Parse(settings.Pages, pdf.NumberOfPages);
-        List<PageResult> pages = [];
-        foreach (int n in numbers)
+        PageResult[] pages = new PageResult[numbers.Count];
+        Lock pdfGate = new();
+        int dop = Math.Clamp(settings.MaxDegreeOfParallelism, 1, Math.Max(1, numbers.Count));
+        if (dop == 1)
         {
-            ct.ThrowIfCancellationRequested();
-            pages.Add(PdfPage(bytes, pdf.GetPage(n), n, settings, ct));
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                ct.ThrowIfCancellationRequested();
+                pages[i] = PdfPage(bytes, pdf, numbers[i], settings, pdfGate, ct);
+            }
+        }
+        else
+        {
+            // PdfPig isn't thread-safe, so page reads share a lock; rendering is serialized in PageRenderer and the
+            // ONNX sessions are thread-safe, so OCR and LayoutNet run in parallel.
+            try
+            {
+                Parallel.For(
+                    0,
+                    numbers.Count,
+                    new ParallelOptions { MaxDegreeOfParallelism = dop, CancellationToken = ct },
+                    i => pages[i] = PdfPage(bytes, pdf, numbers[i], settings, pdfGate, ct));
+            }
+            catch (AggregateException e) when (e.InnerExceptions.Count == 1)
+            {
+                System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(e.InnerExceptions[0]);
+            }
         }
 
         return ExtractionDocumentBuilder.Build(identifier, pages);
@@ -44,7 +66,7 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
         double s = ImageLongSidePt / Math.Max(bmp.Width, bmp.Height);
         OcrPage ocr = engine.Recognize(bgra.ToRgb(), ct);
         List<OcrLine> lines = [.. ocr.Lines.Where(Usable)];
-        List<Unit> units = OcrUnits.FromOcr(lines, s);
+        (List<Unit> units, double? skew) = UprightUnits(lines, bmp.Width, bmp.Height, s);
         List<UnitSource> sources = [.. lines.Select(l => OcrSource(l, s))];
         double w = bmp.Width * s, h = bmp.Height * s;
         (PageModel model, string? skipped) = settings.Layout
@@ -63,14 +85,29 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
             LayoutSkipped = skipped,
             Ocred = true,
             Scripts = [.. lines.Select(l => l.Script).Distinct()],
+            Deskew = skew,
+            DeskewCenter = (w / 2, h / 2),
         };
+        if (settings.FigureImages && FigureCrops.Figures(model).Any())
+        {
+            page.FigureImages = FigureCrops.Crop(page, [], bmp);
+        }
+
         return ExtractionDocumentBuilder.Build(identifier, [page]);
     }
 
-    private PageResult PdfPage(byte[] bytes, Page pdfPage, int number, ExtractionSettings settings, CancellationToken ct)
+    private PageResult PdfPage(byte[] bytes, PdfDocument pdf, int number, ExtractionSettings settings, Lock pdfGate, CancellationToken ct)
     {
-        PdfPageFacts facts = PdfTextLayer.Read(pdfPage);
-        (List<Unit> native, double w, double h) = PdfUnits.FromPage(pdfPage);
+        PdfPageFacts facts;
+        List<Unit> native;
+        double w, h;
+        using (pdfGate.EnterScope())
+        {
+            Page pdfPage = pdf.GetPage(number);
+            facts = PdfTextLayer.Read(pdfPage);
+            (native, w, h) = PdfUnits.FromPage(pdfPage);
+        }
+
         PageComplexity? c = settings.Ocr switch
         {
             OcrMode.Never => null,
@@ -82,6 +119,8 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
         List<UnitSource> sources;
         bool ocred = c is { RunsOcr: true };
         bool unitsFromOcr = false;
+        double? skew = null;
+        (double X, double Y) center = default;
         List<string> scripts = [];
         if (!ocred)
         {
@@ -100,18 +139,18 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
             OcrMergeResult merged = OcrMerge.Merge(facts.Items, page.Lines, ppp, c!.HasNativeText, c.ReplaceNative);
             List<OcrLine> lines = [.. merged.Ocr.Select(a => a.Line with { Text = a.Item.Text }).Where(Usable)];
             scripts.AddRange(lines.Select(l => l.Script).Distinct());
-            List<Unit> ocrUnits = OcrUnits.FromOcr(lines, ppp);
             List<UnitSource> ocrSources = [.. lines.Select(l => OcrSource(l, ppp))];
             if (merged.KeptNatives.Count == 0)
             {
-                units = ocrUnits;
+                (units, skew) = UprightUnits(lines, image.Width, image.Height, ppp);
+                center = (image.Width * ppp / 2, image.Height * ppp / 2);
                 sources = ocrSources;
                 unitsFromOcr = true;
             }
             else
             {
                 List<Unit> kept = [.. native.Where(u => !merged.DroppedNatives.Any(d => Inside(u.PBox, d)))];
-                units = [.. kept, .. ocrUnits];
+                units = [.. kept, .. OcrUnits.FromOcr(lines, ppp)];
                 sources = [.. kept.Select(u => UnitSource.Rect(u.PBox)), .. ocrSources];
             }
         }
@@ -119,7 +158,7 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
         (PageModel model, string? skipped) = settings.Layout
             ? RunLayout(units, w, h, unitsFromOcr, () => PageRenderer.RenderForLayout(bytes, number - 1), ct)
             : (PageModel.Empty, "disabled");
-        return new PageResult
+        PageResult result = new()
         {
             Number = number,
             Width = w,
@@ -130,7 +169,31 @@ internal sealed class ExtractionPipeline(SessionPool sessions, OcriaEngine engin
             LayoutSkipped = skipped,
             Ocred = ocred,
             Scripts = scripts,
+            Deskew = skew,
+            DeskewCenter = center,
         };
+        if (settings.FigureImages && FigureCrops.Figures(model).Any())
+        {
+            using SKBitmap bmp = PageRenderer.RenderBitmap(bytes, number - 1, Units.RulesDpi);
+            result.FigureImages = FigureCrops.Crop(result, facts.Images, bmp);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Units for a page whose text is all OCR. On a tilted scan the lines are turned upright about the image centre
+    /// first (see <see cref="Deskew"/>); sources keep the lines' real quads.
+    /// </summary>
+    private static (List<Unit> Units, double? Skew) UprightUnits(List<OcrLine> lines, int widthPx, int heightPx, double pointsPerPixel)
+    {
+        if (Deskew.PageSkew(lines) is not double deg)
+        {
+            return (OcrUnits.FromOcr(lines, pointsPerPixel), null);
+        }
+
+        List<OcrLine> upright = [.. lines.Select(l => Deskew.Upright(l, widthPx / 2.0, heightPx / 2.0, deg))];
+        return (OcrUnits.FromOcr(upright, pointsPerPixel), deg);
     }
 
     private (PageModel Model, string? Skipped) RunLayout(List<Unit> units, double w, double h, bool ocr, Func<Bgra32Image> raster, CancellationToken ct)

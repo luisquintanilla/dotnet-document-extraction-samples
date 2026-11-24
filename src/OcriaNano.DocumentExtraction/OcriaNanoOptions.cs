@@ -19,7 +19,7 @@ public enum OcrMode
 [Flags]
 public enum OcriaScripts
 {
-    /// <summary>Latin (English and other Latin-script languages, digits, punctuation).</summary>
+    /// <summary>Latin, Cyrillic and Greek (791 characters, with digits and punctuation).</summary>
     Latin = 1,
 
     /// <summary>Chinese, Japanese and Korean (<c>rec_cjk.onnx</c>).</summary>
@@ -28,7 +28,7 @@ public enum OcriaScripts
     /// <summary>Arabic and Hebrew (<c>rec_rtl.onnx</c>).</summary>
     Rtl = 4,
 
-    /// <summary>Other scripts: Cyrillic, Greek, Devanagari, Thai and more (<c>rec_world.onnx</c>).</summary>
+    /// <summary>About 17 other scripts, such as Devanagari, Thai and Georgian (<c>rec_world.onnx</c>).</summary>
     World = 8,
 
     /// <summary>Every recognizer.</summary>
@@ -66,8 +66,18 @@ public sealed class OcriaNanoOptions
     /// <summary>Gets or sets ONNX Runtime session options. The client borrows them and doesn't dispose them.</summary>
     public SessionOptions? SessionOptions { get; set; }
 
-    /// <summary>Gets or sets how many pages are processed at once.</summary>
+    /// <summary>
+    /// Gets or sets how many PDF pages are processed at once. Reading the PDF and rendering pages stay serialized;
+    /// OCR and LayoutNet run in parallel. Pages come back in order whatever the value. Values below 1 mean 1.
+    /// </summary>
     public int MaxDegreeOfParallelism { get; set; } = 1;
+
+    /// <summary>
+    /// Gets or sets whether figures carry a PNG crop of the page. When true, each
+    /// <c>ExtractionDocumentImageElement</c> made from LayoutNet's figure text gets a <c>DataContent</c> (image/png)
+    /// covering the figure's text and any embedded image it overlaps. Off by default: crops make documents larger.
+    /// </summary>
+    public bool IncludeFigureImages { get; set; }
 
     internal OcriaNanoOptions Clone() => (OcriaNanoOptions)MemberwiseClone();
 }
