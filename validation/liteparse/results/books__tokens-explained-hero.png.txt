@@ -1,0 +1,48 @@
+Tokens, Explained
+Sample book for document extraction
+Tokenizers in .NET
+The Microsoft.ML.Tokenizers library brings popular model tokenizers to C# with no Python dependency. Every tokenizer derives from the same Tokenizer base class, so encoding, decoding, and counting look the same for all of them.
+Tokenizer
+Algorithm
+NET type
+Where you'll see it Model families Typical use
+Tiktoken
+Optimized BPE
+TiktokenTokenizer
+GPT-4o, GPT-4, o1, 03
+Cost and context checks for OpenAI calls
+BPE
+Byte pair encoding
+BpeTokenizer
+GPT-2, RoBERTa
+Custom vocab and merges files
+SentencePiece (Llama)
+SentencePiece (BPE or LlamaTokenizer
+Llama 2, T5,
+Open-weight and
+Unigram)
+mBART
+multilingual models
+WordPiece (BERT)
+WordPiece
+BertTokenizer
+BERT, DistilBERT
+Embeddings and classification
+The tokenization pipeline
+Input text
+Normalizer
+→ Pre-tokenizer
+Model
+Token IDs
+"Hello, world!"
+optional cleans text
+optional splits chunks
+core engine BPE, WordPiece
+13225, 11, 2375, 0]
+Decode runs the other way: Token IDs back to text.
+Figure 2. Every encode call runs text through the same pipeline of stages.
+using Microsoft.ML. Tokenizers;
+TiktokenTokenizer tokenizer =
+TiktokenTokenizer.CreateForModel("gpt-40");
+int count = tokenizer.CountTokens ("Hello, world!"); Console.WriteLine($"Tokens: {count}"); // Tokens: 4
+Page 3 of 5

@@ -1,0 +1,41 @@
+Agents Propose, Tools Decide
+Sample book for document extraction
+Gates and evidence
+Each rung on the ladder becomes a gate: a check that passes or fails a change. When every gate runs from one command, the agent, you, and CI all see the same result. A green local run predicts a green pull request.
+Each gate also leaves evidence. The table shows what that evidence proves, and just as important, what it
+doesn't.
+Gate
+Tool
+Evidence
+What it proves
+What it doesn't
+Build
+C# compiler with nullable enabled
+Types line up; illegal calls are rejected
+That the arithmetic is right
+Analyzers
+NET code analysis, - warnaserror
+Known risky patterns are absent
+That the logic meets the spec
+Unit tests
+xUnit or MSTest via dotnet test
+The chosen examples behave
+Anything about inputs nobody picked
+Properties
+CsCheck with a fixed seed
+A rule holds across thousands of inputs
+That the rule itself is the right one
+Coverage
+dotnet test --collect
+Which lines ran during tests
+That any test checked the result
+Allocations
+BenchmarkDotNet memory diagnoser
+Bytes allocated per operation
+Wall-clock speed on another machine
+Notice the coverage row. A test that calls a method and throws away the result still counts every line as
+covered. Record coverage, but don't treat it as proof.
+State the rule, not the example
+An example test says "this input gives that output." A property says "for every input, this rule holds." A library such as CsCheck generates thousands of inputs, shrinks any failure to a small case, and prints a seed so you can replay it exactly.
+Say you split a refund across order lines. The rule is simple: the lines add up to the refund.
+Page 5 of 7

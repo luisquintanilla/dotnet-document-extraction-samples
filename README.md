@@ -90,7 +90,8 @@ dotnet run 02-swap-providers.cs -- ocria
 
 The models go to the same folder LiteParse uses (`lit models pull ocria-nano` works too), or to
 `OCRIA_MODEL_DIR`. The script checks every file against a pinned SHA-256. Without the models, the
-samples skip `ocria` with a message.
+samples skip `ocria` with a message. [`validation/liteparse`](validation/liteparse) compares its
+output with LiteParse's on the same documents.
 
 > [!IMPORTANT]
 > The OCRia-nano-1 weights aren't in this repo and aren't MIT. LlamaIndex publishes them under a

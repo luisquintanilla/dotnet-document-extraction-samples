@@ -1,0 +1,352 @@
+# 42 wNE oYL CBAUEL CAND Nö Inu STM SYMYn
+
+---
+
+POLK VIN MODEL
+
+380
+
+2023 J VAGONEER ES II
+
+2022 JI ERIE 392 0
+
+|  | 2023 |  | 392 |  |  |
+|---|---|---|---|---|---|
+| C4SJVEI | 2022 JE | GRAND WAGONEER SE | 183 |  | 06 |
+| 1C4SJVEP0 | 2023 JEI | GRAND WAGONEER SERIE | 183 | 11 02 |  |
+| 1C4SJVEPI | 2024 JEEP | GRAND WAGONEER SERIE L | 183 G | 11 02 |  |
+| 1C4SJVFJON | 2022 JEEP | GRAND WAGONEER SERIEI | 392 G | 11 13 | 09 05 m |
+| 1C4SJVFJO | 2023 JEEP | GRAND WAGONEER SERIEI | 392 G | 11 13 |  |
+| 1C4SJVFPON | 2022 JEEP | GRAND WAGONEER SERIE | 183 G | 11 09 |  |
+| 06 YY |  |  |  |  |  |
+| 1C4SJVFPI | 2023 JEER | GRAND WAGONEER SERIE | 183 G | 11 09 |  |
+| 1C4SJVFPO | 2024 JEEF | GRAND WAGONEER SERIEI | 183 G | 11 09 |  |
+| 06 YYY |  |  |  |  |  |
+| 1C4SJVGJON | 2022 JEER | GRAND WAGONEER SERIE L | 392 C | 11 13 | 05 |
+| YYY |  |  |  |  |  |
+| 1C4SJVGJ0F | 2023 JEEF | GRAND WAGONEER SERIEI | 392 C | 11 13 | 05 m |
+
+1C4SJVGPON 2022 JEER GRAND WAGONEEI 183 G 09 06 m
+
+SERIE
+
+1C4SJVGPOP 2023 JEER GRAND WAGONEE SERIEI 183 G Y 07 09 06 YYY 1C4SJVGP0I 2024 JEER SRAND V ERIE U 183 G 09 06
+
+|  |  | IAGONED |  |  |  | YYY |
+|---|---|---|---|---|---|---|
+| 1C6HJTAGOI | 2020 JEER | GLADIATOR SPOR | 220 G | K 10 | 04 | 03 YYY |
+| 1C6HJTAGOM | 2021 JEEP GLADIATOR SPOR | PK | 220 G | K 10 | 04 | 03 YYY |
+| 1C6HJTAGON | 2022 JEEP SLADIATOR SPOR | PK | 220 G | K 10 | 04 | 03 YYY |
+| 1C6HJTAGC | 2023 JEEP GLADIATOR SPOR | PK | 220 G | K 10 | 04 | 03 YYY |
+| 1C6HJTAGC | 2024 JEEP SLADIAT | PK | 220 C | K 10 | 04 | 03 YYY |
+
+OR SPO P
+
+C6HJTBGO 2020 JEEP SLADIA PK 220 G K 10 04 02 YYY C6HJTFG 2020 JEEP BLADIATOR OVERL 220 G 04
+
+P K 10 3
+
+C6HJTF 2021 JEEP 220 C
+
+AD P
+
+C6HJTFC 2022 JEEP 220 C 10 04 m C6HJTF 2023 JEEP 220 G 04
+
+ADIAT P
+
+220 G
+
+AD
+
+024 J
+
+| C6J. | 020 JI |  |  | 220 |  |  |  |
+|---|---|---|---|---|---|---|---|
+| 1C6JJTAGOM | 2021 JEE | GLADIATOR SPOR |  | 220 G |  |  | YY |
+| 1C6JJTAGO | 2022 JEI |  |  | 220 |  |  |  |
+|  |  | GLADIATOR SPOf |  |  |  |  |  |
+| 1C6JJTAGO | 2023 JE | GLADIA1 |  | 220 |  |  |  |
+| 1C6JTAGOF | 2024 JEEP | GLADIATOR SPOR | PK | 220 G |  |  | YYY |
+| 1C6JTAMOM | 2021 JEEP | GLADIATOR SPOF | PK | 1831 |  |  | YYY |
+| 1C6JJTAMO | 2022 JEEP | GLADIATOR SPOR | PK | 183 D |  |  | YYY |
+| 1C6JJTAMO | 2023 JEEP | GLADIATOR SPOR | PK | 183 D |  | 03 |  |
+|  |  |  |  |  |  |  | YYY |
+| 1C6JJTBG0 | 2020 JEEP | GLADIATOR RUBICOI | PK | 220 C |  |  |  |
+|  |  |  |  |  |  |  | YY |
+| 1C6JJTBGON | 2021 JEEP | GLADIATOR RUBICOI | PK | 220 C |  |  |  |
+|  |  |  |  |  |  | 04 |  |
+| 1C6JJTBGON | 2022 JEEP | GLADIATOR RUBICOI | PK | 220 C |  | 05 |  |
+| 1C6JJTBGOF | 2023 JEER | GLADIATOR RUBICOI | PK | 220 |  | 04 |  |
+| 1C6JJTBGOF | 2024 JEER | SLADIATOR RUBICOI |  | 220 G |  | 02 |  |
+| 1C6JJTBMOM | 2021 JEER | SLADIATOR RUBICOI | PK | 183 D | 10 |  |  |
+| 1C6JJTBMON | 2022 JEEP | GLADIATOR RUBICOI | PK | 183 D | 10 08 | 05 |  |
+
+1C6JJTBM0F 2023 JEEP GLADIATOR RUBICOI PK 183 D 10 08 03 02
+
+YYY
+
+1C6JJTEGO 2020 JEEP GLADIATOR MOJAVI PK 220 G 10 04
+
+04 YY
+
+| 1C6JJTEGON | 2021 JEEP | GLADIATOR MOJAVI | PK | 220 G | K 10 | 04 | 04 YYY |
+|---|---|---|---|---|---|---|---|
+| 1C6JJTEGON | 2022 JEEP | GLADIATOR MOJAVI | PK | 220 G | K 10 | 05 | 04 YYY |
+| 1C6JTEGO | 2023 JEEP | GLADIATOR MOJAVI | PK | 220 G | K 10 |  | 04 m |
+| 1C6JJTEGO | 2024 JEEP | GLADIATOR MOJAVI | PK | 220 G | K 10 | 03 | 04 YYY |
+| 1C6JTFGG | 2020 JEEP | GLADIATOR OVERLAN | PK | 220 G | K 10 | 04 | 03 m |
+| 1C6JJTEMOM | 2021 JEEP | GLADIATOR OVERLAN |  | 183 D | K 10 | 04 |  |
+
+04
+
+| 1C6JJTFMO JEEP GLADIATORC 183 D |  |  |  |  |  |  |
+|---|---|---|---|---|---|---|
+| 1C6JJTFMO | 2023 JEEP GLADIATOR OVERLAND |  | 183 D |  |  |  |
+|  | 2012 DODG RAM 150 ST | 22722 | 225 C |  |  |  |
+|  |  |  | 287 |  |  |  |
+|  | 2012 DOD RAM' |  | 3a0 |  | 12 |  |
+| C6R | 2012 DOD |  |  |  |  |  |
+| 1C6RD | 2012 DODG RAM 1500 SL1 |  | 287 C |  | 12 02 | YY |
+| 1C6RD6G | 2012 DODG RAM 1500 SLT | 2223 PK | 348 G |  | 09 |  |
+| 1C6RD6I | 2012 DODG RAM 1500 SPORT |  | 8348 G |  |  |  |
+|  |  |  |  |  |  | TIY |
+| 1C6RD6JT | 2012 DODG RAM 1500 LARAMIE |  | 348 C |  | 12 03 |  |
+| 1C6RD6KK | 2012 DODG RAM 1500 ST | PK | 225 G |  |  |  |
+| 1C6RD6KI | 2012 DODG RAM 1500 S | PK | 287 G |  |  | YYY |
+|  |  |  |  |  | 12 03 |  |
+| 1C6RD6KTo | 2012 DODG RAM 1500 S | PK | 348 G |  | 03 |  |
+|  |  |  |  |  |  | YYY |
+| 1C6RD6LPO | 2012 DODG RAM 1500 SL1 | PK | 287 C |  |  |  |
+|  |  |  |  |  | 13 03 | YYY |
+| 1C6RD6LTO | 2012 DODG RAM 1500 SLT | PK | 348 C |  |  |  |
+|  |  |  |  |  |  | YYY |
+| 1C6RD6MTO | 2012 DODG RAM 1500 SPOR | PK | 348 C |  |  |  |
+|  |  |  |  |  | 03 | YYY |
+| 1C6RD6NTO | 2012 DODG RAM 1500 LARAMIE | PK | 348 C |  | 07 |  |
+| 1C6RD6PTO | 2012 DODG RAM 1500 LONGHOR | PK | 348 C |  |  | YYY |
+| 1C6RD7FPC | 2012 DODG RAM 1500 ST | PK | 287 G |  | 04 | YYY |
+| 10 14 06 |  |  |  |  |  |  |
+| 1C6RD7FTOC 2012 DODG RAM 1500 ST PK 348 C 10 04 YYY |  |  |  |  |  |  |
+| 1C6RD7GP0C 2012 DODG RAM 1500 SL1 PK 287 G 10 04 YYY |  |  |  |  |  |  |
+| 1C6RD7GT0 | 2012 DODG RAM 1500 SLT | PK | 348 G | K 10 | 04 | YYY |
+| 1C6RD7HT | 2012 DODG RAM 1500 SPORT | PK | 348 G | K 08 | 04 |  |
+|  |  |  |  |  |  | 04 YYY |
+| 1C6RD7JTO 2012 DODG RAM 1500 LARAMI PK 348 G K 10 04 D8 YYY |  |  |  |  |  |  |
+| 1C6RD7KP 2012 DO AM 1500 ST PK 287 G K 08 |  |  |  |  |  |  |
+| 04 YYY |  |  |  |  |  |  |
+| 1C6RD7KT 2012 DO 500 S' PK 348 C K 08 04 |  |  |  |  |  |  |
+|  |  |  |  |  |  | YYY |
+| C6RD7LPO 2012 DO 500 SLT PK 287 G K 08 04 05 YYY |  |  |  |  |  |  |
+| AM |  |  |  |  |  |  |
+| C6RD7LT 2012 D 500 SLT PK 348 C K 08 04 m |  |  |  |  |  |  |
+| 5 |  |  |  |  |  |  |
+| C6RD7M |  | PK | 348 C |  |  |  |
+
+06
+
+348
+
+2D7D 348 C 08
+
+PK 20
+
+13
+
+| C6RI 1C6RR6FG0 1C6RR6FGO | 2014 R 2015 RA 500 8 2016 RAM 1500 S 2017 RAM 1500 S | 220 220I | 02 | YYY |
+|---|---|---|---|---|
+| 1C6RR6FGO. 2018 RAM 1500 ST PK 220I YYY |  |  |  |  |
+| 1C6RR6FGOK | 2019 RAM 1500 CLASSIC TRADESM PK | 220I |  | YYY |
+|  |  |  | 03 |  |
+| 1C6RR6FGO | 2020 RAM 1500 CLASSIC TRADESN | 220I |  |  |
+| 1C6RR6FGON | 2021 RAM 1500 CLASSIC TRADESM | 220I |  | m |
+| 12 04 |  |  |  |  |
+| 1C6RR6FGON 2022 RAM 1500 CLASSIC TRADESM 220 F 11 |  |  |  |  |
+|  |  |  | 03 | YY |
+| 1C6RR6FGOF | 2023 RAM 1500 CLASSIC TRADESM PK | 220 F |  |  |
+| 1C6RR6FGOF | 2024 RAM 1500 CLASSIC TRADESN PK | 220 F |  |  |
+| 1C6RR6FKOD | 2013 RAM 1500 ST | 225 G | 04 |  |
+
+CW
+
+1C6RR6FKOI 2014 RAM 1500 ST 225 C
+
+04 YYY
+
+03
+
+Ym
+
+YYY
+
+02
+
+YYY
+
+YYY
+
+03 YY
+
+13 03
+
+YYY
+
+13 03
+
+03
+
+YYY
+
+08 YYY
+
+| 1C6RR6FKOI | 2015 RAM 1500 ST | PK | 225 G |
+|---|---|---|---|
+| 1C6RR6FKO | 2016 RAM 1500 ST | PK | 225 C |
+| 1C6RR6FKOI | 2017 RAM 1500 ST | PK | 225 G |
+| 1C6RR6FKC | 2018 RAM 1500 ST | PK | 225 G |
+| 1C6RR6FMOE | 2014 RAM 1500 ST | PK | 183 D |
+| 1C6RR6FMOF | 2015 RAM 1500 ST | PK | 183 D |
+| 1C6RR6FMOC | 2016 RAM 500 ST | PK | 183 D |
+| IC6RR6FMO | 2017 RAM 500 ST | PK | 183 D |
+| IC6RR6FMO | 2018 RAM 1500 ST | PK | 183 D |
+| 1C6RR6FPOI | 2013 RAM | 500 ST | 287 C |
+| 1CORRGFPO 1C6RR6FPC | 2015RAM 1500ST 2014 RAM 500 ST | PK | 287 C |
+
+287 YYY 200.0A 500 S 287
+
+RR6E
+
+1C6RF 2017 R 500 S 287
+
+2018 287
+
+348
+
+| C6RI | 2013 RAM | 1500 S |  |  |  | YY |
+|---|---|---|---|---|---|---|
+| 1C6RR6F | 2014 RAM | 1500 ST |  | 348 G |  | YY |
+| 1C6RR6FT | 2015 RAM 1500 | ST |  | 348 G |  |  |
+| 1C6RR6FTOG | 2016 RAM 1500 | ST |  | 348 G |  |  |
+|  |  |  |  |  |  | T |
+| 1C6RR6FTOH | 2017 RAM 1500 | ST |  | 348 C |  |  |
+| 1C6RR6FTOJ 2018 RAM 1500 ST PK 348 G P |  |  |  |  |  |  |
+|  |  |  |  |  |  | YYY |
+| 1C6RR6FTOH | 2019 RAM | 1500 CLASSIC TRADESM |  | 348 C |  |  |
+| 1C6RR6FTO | 2020 RAM | 1500 CLASSIC TRADESM |  | 348 G |  |  |
+|  |  |  |  |  | 05 |  |
+| 1C6RR6FTON | 2021 RAM | 1500 CLASSIC TRADESM | PK | 348 C |  |  |
+|  |  |  |  |  |  | YY |
+| 1C6RR6FTON | 2022 RAM | 1500 CLASSIC TRADESM | PK | 348 C |  |  |
+|  |  |  |  |  |  | YY |
+| 1C6RR6FTOR | 2023 RAM | 1500 CLASSIC TRADESM |  | 348 C |  | m |
+| 1C6RR6FTOR | 2024 RAM | 1500 CLASSIC TRADESM |  | 348 G |  | YYY |
+| 1C6RR6GG0I | 2013 RAM | 500 SL1 |  | 220 F |  |  |
+|  |  |  | K |  | 03 | YYY |
+| 1C6RR6GG0E | 2014 RAM | 500 SL1 | PK | 220 F |  |  |
+| 1C6RR6GGOF | 2015 RAM | 500 SL1 | PK | 220 F |  | YYY |
+|  |  |  |  |  | 02 |  |
+| 1C6RR6GG00 | 2016 RAM | 500 SLT | PK | 220 F |  | YYY |
+|  |  |  |  |  | 02 |  |
+| 1C6RR6GG0 | 2017 RAM | 500 SLT | PK | 220 F |  | YYY |
+|  |  |  |  |  | 02 |  |
+| IC6RR6GGO. | 2018 RAM | 500 SLT | PK | 220 F |  |  |
+|  |  |  |  |  | 02 | YYY |
+| 1C6RR6GG | 2019 RAM | 500 CLASSIC SLT |  | 220 F |  |  |
+|  |  |  |  |  | 03 | YYY |
+| C6RR6GGI | 2020 RAM | 500 CLASSIC WARLO | PK | 220 F |  |  |
+
+C6RR6GGI 2021 RAM 500 CLASSIC 220 F 03 C6RR6GC 2022 RAM 500 CLASSIC SLT PK 220 F m
+
+8
+
+| C6RR6G | 2023 RAI | 500 CLASSIC SL | PK | 220 F |  |  |
+|---|---|---|---|---|---|---|
+| D6RR6G 2024 RAM ASSIC SLT WA 220 F |  |  |  |  |  |  |
+|  |  |  | PK |  |  |  |
+|  | 2014RA |  |  | 183 D |  |  |
+|  | 2015RAI |  |  |  |  |  |
+| CORR |  |  | PK |  |  |  |
+| C6RF | 2016 RA |  | PK | 183 1 |  |  |
+|  |  | 500 |  |  |  |  |
+| GMe 2017 F 183D 1831 |  |  |  |  |  |  |
+| 1C6RR6GM | 2018 RAM | 1500 SI | PK |  |  | YY |
+| 1C6RR6GP0D | 2013 RAM | 1500 SL | PK | 287 G | 3 03 |  |
+| 1C6RR6GP0E | 2014 RAM | 1500 SL1 | PK | 287 G |  | m |
+| 1C6RR6GPOF | 2015 RAM | 1500 SL1 | PK | 287 C |  | YYY |
+| 1C6RR6GP0C | 2016 RAM | 1500 SL1 |  | 287 G | 03 | m |
+| 1C6RR6GP0H | 2017 RAM | 1500 SL1 | PK | 287 G |  |  |
+|  |  |  |  |  | 04 | YYY |
+| 1C6RR6GPO | 2018 RAM | 1500 SL1 | PK | 287 G | 02 |  |
+| 1C6RR6GTOD | 2013 RAM | 1500 SL1 | PK | 348 C |  |  |
+
+YY
+
+1C6RR6GT0E 2014 RAM 1500 SL1 348 C 04
+
+PK
+
+| 1C6RR6GTOI | 2015 RAM | 1500 SL1 |  | 348 C |  | 03 |  |
+|---|---|---|---|---|---|---|---|
+| 1C6RR6GTO | 2016 RAM | 1500 SL1 | PK | 348 G |  | 03 |  |
+| 1C6RR6GTO | 2017 RAM | 1500 SL1 | PK | 348 C |  | 04 |  |
+| 1C6RR6GTO. | 2018 RAM | 1500 SLT | PK | 348 G |  |  |  |
+|  |  |  |  |  |  | 04 |  |
+| 1C6RR6GTOI | 2019 RAM 1500 CLASSIC SLT |  | PK | 348 C |  |  | rYY |
+| 1C6RR6GTOI | 2020 RAM | 1500 CLASSIC WARLO | PK | 348 G |  |  | 09 YYY |
+| 1C6RR6GTON | 2021 RAM | 1500 CLASSIC SLT | PK | 348 G |  | 04 | 09 YYY |
+| 1C6RR6GTON | 2022 RAM | 500 CLASSIC SLT | PK | 348 G |  |  | 09 YYY |
+|  |  |  |  |  |  | 04 |  |
+| 1C6RR6GTOF | 2023 RAM | 1500 CLASSIC SLT | PK | 348 C |  |  | 09 m |
+|  |  |  |  |  |  | 02 |  |
+| 1C6RR6GTOR | 2024 RAM | 1500 CLASSIC SLT WAF | PK | 348 G |  | 04 | 09 YYY |
+|  |  |  |  |  | 11 |  |  |
+| 1C6RR6HGO | 2014 RAM | 1500 SPORT | 2222 PK | 220 F |  |  |  |
+|  |  |  |  |  | 10 |  |  |
+| C6RR6HGO | 2015 RAM | 500 SPORT |  | 220 F | 10 |  |  |
+|  |  |  |  |  |  |  | 07 |
+| IC6RR6HGO | 2016 RAM | 500 SPORT |  | 220 F | 11 |  | 07 YYY |
+| 1C6RR6HGI | 2017 RAM | 500 SPORT |  | 220 F | 11 12 03 |  | m |
+| 1CORRSHa | 201BRAM |  |  | 220 F |  |  | 07 |
+|  |  | 500 SPOR |  |  |  |  |  |
+|  | 2013 RAM |  |  | 348G |  |  |  |
+| C6R |  | 500 SP |  |  |  |  |  |
+| C6RR | 2014 RA | 500 SPOR |  |  |  |  |  |
+| 1C6RR6HTOF | 2015 RAM 1500 SPOR |  |  | 348 G | 11 |  | YY |
+| 1C6RR6HTo | 2016 RAM | 1500 SPORT |  | 348 G |  | 11 |  |
+|  |  |  |  |  |  |  | TIY |
+| 1C6RR6HTOй | 2017 RAM | 1500 SPOR |  | 348 |  |  |  |
+| 1C6RR6HTo. | 2018 RAM 1500 SPORT |  |  | 348 C | 12 |  |  |
+| 1C6RR6JGC | 2014 RAM 1500 | LARAMIE |  | 220 F |  |  |  |
+| 1C6RR6JGOI | 2015 RAM 1500 LARAMIE |  | PK | 220 F | 11 07 |  |  |
+|  |  |  |  |  |  |  | YYY |
+| 1C6RR6JG0G | 2016 RAM 1500 LARAMIE |  | PK | 220 F | 11 04 02 |  |  |
+| 1C6RR6JG0F- | 2017 RAM | 1500 LARAMIE | PK | 220 F |  | 11 02 |  |
+|  |  |  |  |  |  |  | YYY |
+| 1C6RR6JGO. | 2018 RAM | 1500 LARAMIE | PK | 220 F |  |  |  |
+|  |  |  |  |  | 11 12 02 |  | YYY |
+| 1C6RR6JMOI | 2014 RAM | 1500 LARAMIE | PK | 183 D |  | 14 03 |  |
+| 1C6RR6JMOI | 2015 RAM | 1500 LARAMIE | PK | 183 D |  | 11 03 |  |
+|  |  |  |  |  |  |  | YY |
+| 1C6RR6JM0C | 2016 RAM 1500 LARAMIE |  | PK | 183 D | 08 03 |  | YYY |
+| 1C6RR6JM0H | 2017 RAM | 500 LARAMIE | PK | 183 D |  | 03 | YYY |
+| 1C6RR6JMO. | 2018 RAM | 1500 LARAMIE | PK | 183 D |  | 01 | YYY |
+| 14 |  |  |  |  |  |  |  |
+| 1C6RR6JTOE | 2013 RAM | 500 LARAMIE | PK | 348 G | 08 04 |  | YYY |
+| 1C6RR6JTO | 2014 RAM | 500 LARAMIE | PK | 348 C | 08 |  |  |
+|  |  |  |  |  |  | 04 | 08 YYY |
+| 1C6RR6JTO | 2015 RAM | 500 LARAMIE | PK | 348 G |  | 03 | YYY |
+| 1C6RR6JTO | 2016 RAM | 500 LARAMIE | PK 42 | 348 C |  | 03 | YYY 8 |
+| 1C6RR6JTo | 2017 RAM | 500 LARAMIE | PK | 348 C |  |  |  |
+|  |  |  |  |  |  |  | YY |
+| 1C6RR6JTO | 2018 RAM | 500 LARAMIE | PK | 348 G |  |  |  |
+|  |  |  |  |  |  |  | YYY |
+| C6RR6KG | 2013 RAM | 500 S1 | PK | 220 F |  |  |  |
+| C6RR6KG | 2014 RAI | 500 S' |  | 220 F |  |  |  |
+| C6RR6KO | 015 RA | 500 S | PK | 2201 |  |  |  |
+
+6RR6Ko 016 RA 500 S PK 220 F 07 D6RR6KG 2017 RA 500 S 220 018 R 220
+
+TRADES 188 6RR6KGO 2019 RA
+
+C6RR6KGOI 020 RAN 500 CLAS. TRADESN 220
+
+1C6RR6KGOM 2021 RAM 1500 CLASSIC TRADESM 220 YYY

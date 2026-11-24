@@ -1,0 +1,186 @@
+C h a p t e r 2
+2024 UN E-GovErNmENt SUrvEy
+Figure 2.33 Average OSI subindex values for groups of countries in special situations relative to global
+averages, 2024
+TEC
+193 UN Member States 193 UN Member States
+Linear (global average OSI) Linear (global average OSI)
+LDC/LLDCs
+LDC/LLDCs Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LDC/LLDCs) Linear (average OSI for LDC/LLDCs)
+IF
+0.8079
+IF
+0.8079
+IF
+0.6875
+IF
+0.6875
+CP
+0.6644
+CP
+0.6644
+CP
+0.4444
+CP
+0.4444
+SP
+0.5606
+SP
+0.5606
+0.5754 0.5754
+TEC
+0.3672TEC
+0.3672
+0.3598
+0.3598 0.5754
+0.5754
+0.5363TEC
+0.5363
+SP
+0.3261
+SP
+0.3261
+EPI
+0.4919
+EPI
+0.4919
+EPI
+0.2791
+EPI
+0.2791
+0.00
+0.00 0.25 0.25 0.50
+0.50 0.75 0.75 1.00 1.00
+0.00
+0.00 0.25
+0.25 0.50
+0.50 0.75
+0.75 1.00
+1.00
+LLDCs
+LLDCs
+Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LLDCs) Linear (average OSI for LLDCs)
+LDCs
+LDCsLinear (global average OSI) Linear (global average OSI) Linear (average OSI for LDCs) Linear (average OSI for LDCs)
+IF
+0.7725
+IF
+0.7725
+IF
+0.6284
+IF CP
+0.6284
+CP SP
+0.5938
+CP
+0.5938
+CP
+0.4272
+0.4272
+0.4680
+SP
+0.4680
+TEC
+0.3667TEC
+0.36670.3264
+0.3264 0.5754 0.5754
+TEC
+0.4668TEC
+0.4668
+0.5754
+0.5754
+SP
+0.2878
+SP
+0.2878
+0.4885
+0.4885
+EPI
+0.3960
+EPI
+0.3960
+EPI
+0.2569
+EPI
+0.2569
+0.00
+0.00 0.25
+0.25 0.50
+0.50 0.75 0.75 1.00
+1.00
+0.00
+0.00 0.25 0.25 0.50
+0.50 0.75
+0.75 1.00
+1.00
+TEC
+EPI
+CP
+SIDS
+SIDS
+Linear (global average OSI) Linear (global average OSI) Linear (average OSI for SIDS) Linear (average OSI for SIDS)
+LDC/SIDS
+LDC/SIDS Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LDC/SIDS) Linear (average OSI for LDC/SIDS)
+IF
+0.6746
+IF
+0.6746
+IF
+0.4750 IF
+0.4750
+0.5075
+CP
+0.5075
+CP
+0.3333 CP
+0.3333
+SP
+0.4038
+SP
+0.4038
+TEC
+0.2344TEC
+0.2344 0.2407
+0.24070.5754
+0.5754
+0.3902TEC
+0.3902
+0.4076
+0.5754 0.4076
+0.5754
+SP
+0.2169 SP
+0.2169
+0.3081
+EPI
+0.3081
+EPI
+0.1969 EPI
+0.1969
+0.00
+0.00 0.25
+0.25 0.50
+0.50 0.75
+0.75 1.00
+1.00
+0.00
+0.00 0.25
+0.25 0.50
+0.50 0.75 0.75 1.00
+1.00
+Source: 2024 United Nations E-Government Surveys.
+Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LDC/LLDC) Linear (average OSI for LDC/LLDC) F F
+Overall, the legislative framework for advancing e-government is better developed in llDcs, including those that are least developed, than in SIDS or lDcs (see figure 2.35). Most llDcs have SIDS SIDSLDCs LDCs LLDCs LDC/SIDS an e-government or digital government strategy (78 per cent), legislation or policy documents on Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix cybersecurity (91 per cent), legal provisions for data protection (88 per cent), legislation governing freedom of information (78 per cent), and digital ID regulations (72 per cent). Fewer SIDS and lDcs (51 to 65 per cent) have these types of legislation in place, and the proportions are even lower for lDc/SIDS (between 13 and 65 per cent, depending on the type of legislation).
+Africa
+Africa
+Very high EGDI Very high EGDI
+Americas
+Americas
+76
+Europe
+Asia
+Europe
+Asia
+High EGDI High EGDI Middle EGDI Middle EGDI Low EGDI Low EGDI
+Oceania
+Oceania

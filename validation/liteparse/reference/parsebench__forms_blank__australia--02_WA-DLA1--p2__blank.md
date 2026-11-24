@@ -1,0 +1,136 @@
+The *Road Traffic (Authorisation to Drive) Regulations 2014* requires you to inform the CEO of any permanent, long-term mental or physical condition (which may include a dependence on drugs or alcohol) that is likely to, or treatment for which is likely to, impair your ability to control a motor vehicle. Failure to inform the CEO may incur a penalty of up to $500. Do you suffer from any mental or physical condition(s) that may impair your <u>ability</u> to <u>control</u> a motor vehicle? NO YES - list below
+
+---
+
+Do you take any medication or treatment for the management of the condition(s)?
+
+N/A NO YES - list below
+
+---
+
+# PRIVACY STATEMENT AND DECLARATION
+
+DTMI collects your personal information, including your name, signature, photograph, biometric and health data, to verify your identity and assess your eligibility for the grant of a driver's licence or learner's permit. It is then used
+
+---
+
+on an ongoing basis for administering your driver's licence records (if granted) including maintaining the driver's licence register.
+
+---
+
+The *Road Traffic (Authorisation to Drive) Act 2008* requires that evidence of your identity and residence must be provided. In some cases, a medical assessment may be required to confirm your fitness to hold a licence or permit. Your personal information may be shared with authorised third parties, including law enforcement and other transport agencies, as permitted or required by law or court order. Providing this information is voluntary, but if you do not provide the required information your application may be refused. If you provide false or misleading information your licence may be cancelled and you may face criminal proceedings. DTMI is committed to protecting your privacy. For more information on how
+
+---
+
+we handle your personal information, including the purposes for which it may be used and disclosed, visit transport.wa.gov.au/privacy. You may access or correct your personal information by emailing foi@transport.wa.gov.au or visiting transport.wa.gov.au/foi.
+
+## DECLARATION I declare that the information provided on this form and in supporting
+
+**documents is accurate and complete to the best of my knowledge. I confirm that I am authorised to provide the personal details included and consent to my information being checked with the document issuer or official record holder via third party systems for the purpose of confirming my identity.**
+
+---
+
+**Sign this section in the presence of a DTMI staff member/agent.**
+
+---
+
+SIGNATURE
+
+---
+
+WITNESS NAME
+
+---
+
+WITNESS SIGNATURE
+
+---
+
+# OFFICE USE ONLY - POI DOCUMENTS PROVIDED
+
+**CONDUCTED SEARCH FOR IDENTITY IN EXISTING** YES
+
+## DEPARTMENTAL RECORD/S
+
+All documents provided by the applicant must be ORIGINAL (photocopies will not be accepted).
+
+## APPLICATION FOR INITIAL WA DRIVER'S LICENCE OPTION 1
+
+- 1 document from Category A
+- 1 from Category B A B C C D
+- 2 from Category C; and
+- 1 from Category D (not E40)
+
+## OPTION 2
+
+- 1 document from Category A A C C D D
+- 2 from Category C; and
+- 2 from Category D All other applicants must supply one form of primary and one form of secondary identification. <u>PRIMARY IDENTIFICATION SECONDARY IDENTIFICATION</u>
+
+I have checked that the applicant has met the proof of identity requirements
+
+and have attached copies of all relevant documents provided. The applicant's signature has also been verified. (Where an applicant provides a debit/credit card, DO NOT PHOTOCOPY.) Operator signature
+
+# MEDICAL AND EYESIGHT RESULTS
+
+LEFT EYE 6 RIGHT EYE 6 BOTH EYES 6 TESTED WITH VISUAL AIDS YES MEDICAL REQUIRED YES M107A ISSUED YES
+
+Email sent to Driver Suitability Services to issue M107A
+
+# WA LICENCE INFORMATION
+
+DL NUMBER DL TYPE CLASSES APPLIED FOR
+
+**THEORY TEST RESULTS**
+
+KEYS FOR LIFE CERTIFICATE NUMBER
+
+NO NO NO
+
+CONVICTION HISTORY CHECK YES ALCOHOL INTERLOCK CONDITION ADDED N/A EXEMPTION REASON DISTANCE <u>LICENCE</u> CONDITIONS
+
+NO YES NO MEDICAL
+
+---
+
+DATE / /
+
+# IMPORTANT INFORMATION
+
+---
+
+## INTERSTATE DRIVER'S LICENCE TRANSFERS
+
+---
+
+If you currently hold a licence issued by an Australian State or Territory it must be surrendered upon the grant of a WA driver's licence.
+
+---
+
+## OVERSEAS DRIVER'S LICENCE TRANSFERS
+
+---
+
+You may be granted a learner's permit if your overseas licence cannot
+
+---
+
+be validated. If your licence is not in English you must provide an official National Accreditation Authority for Translators and Interpreters (NAATI)
+
+---
+
+certified translation of your original driver's licence document, along with your overseas driver's licence.
+
+# INTERPRETER SERVICES
+
+WERE THE SERVICES OF AN INTERPRETER USED? YES NO NAME OF INTERPRETER
+
+REGISTRATION NUMBER
+
+CLIENT'S PREFERRED LANGUAGE
+
+# AUDITOR DETAILS
+
+AUDITOR NAME AUDITING SITE
+
+DATE / /
