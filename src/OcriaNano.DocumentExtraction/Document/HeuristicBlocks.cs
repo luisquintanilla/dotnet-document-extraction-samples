@@ -11,8 +11,30 @@ internal static class HeuristicBlocks
     /// <summary>Gap, in median line heights, that starts a new paragraph.</summary>
     public const double ParagraphGap = 1.5;
 
-    /// <summary>Groups <paramref name="indices"/> (into <paramref name="units"/>) into paragraph blocks.</summary>
-    public static List<ModelBlock> Build(IReadOnlyList<Unit> units, IReadOnlyList<int> indices)
+    /// <summary>
+    /// Groups <paramref name="indices"/> (into <paramref name="units"/>) into paragraph blocks. With <paramref name="leaves"/>
+    /// (XY-cut regions in reading order), paragraphs form within each region, so they never run across a column gutter.
+    /// </summary>
+    public static List<ModelBlock> Build(IReadOnlyList<Unit> units, IReadOnlyList<int> indices, IReadOnlyList<IReadOnlyList<int>>? leaves = null)
+    {
+        if (leaves is null)
+        {
+            return BuildGroup(units, indices);
+        }
+
+        HashSet<int> wanted = [.. indices];
+        List<ModelBlock> blocks = [];
+        foreach (IReadOnlyList<int> leaf in leaves)
+        {
+            List<int> group = [.. leaf.Where(wanted.Remove)];
+            blocks.AddRange(BuildGroup(units, group));
+        }
+
+        blocks.AddRange(BuildGroup(units, [.. indices.Where(wanted.Contains)]));
+        return blocks;
+    }
+
+    private static List<ModelBlock> BuildGroup(IReadOnlyList<Unit> units, IReadOnlyList<int> indices)
     {
         List<ModelBlock> blocks = [];
         if (indices.Count == 0)

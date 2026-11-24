@@ -116,8 +116,8 @@ Reject: tool output goes back as feedback
 Agent proposes diff
 Build + analyzers
 Tests + Gate properties decision
-Accept
 Every gate gives a yes or no. Only tool output can block a merge.
+Accept
 Human review reads the evidence, merges
 Figure 2. The agent loop. Failing output becomes the agent's next prompt.
 This loop works because every message in it is precise. CS1061 names the type. A failed property prints the seed and the smallest failing input. The agent doesn't need to guess what went wrong, and you don't need to read every line to trust what passed.

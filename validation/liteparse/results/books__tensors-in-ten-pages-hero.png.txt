@@ -28,15 +28,15 @@ Matrix multiply: [2, 3] × [3, 2] = [2, 2]
 A [2, 3]
 B [3, 2]
 C [2, 2]
-2 5
-11
-10
-12
-139
-58
-154
-64
 Row 1 of A • column 1 of B 1×7 + 2x9 + 3×11 = 7 + 18 + 33 = 58
+2 5
+58
+64
+10
+139
+154
+11
+12
 Each cell of C is the dot product of a row of A and a column of B.
 = [[58, 64], [139, 154]]
 Figure 2. A worked [2, 3] × [3, 2] matrix multiply. Row 1 of A and column 1 of B give 58.

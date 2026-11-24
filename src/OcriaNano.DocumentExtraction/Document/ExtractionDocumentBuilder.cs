@@ -161,8 +161,14 @@ internal static class ExtractionDocumentBuilder
 
     private static (List<ExtractionDocumentElement> Elements, string Markdown) BuildPage(PageResult page, ExtractionDocumentSourcePage source)
     {
-        List<Item> items = Compose(page);
+        List<List<int>>? leaves = UnitLeaves(page);
+        List<Item> items = Compose(page, leaves);
         List<int> order = items.Count > 1 ? ReadingOrder.Order([.. items.Select(i => i.Box)]) : [.. Enumerable.Range(0, items.Count)];
+        if (leaves is not null && items.Count > 1)
+        {
+            order = ByLeafRank(items, order, leaves);
+        }
+
         List<ExtractionDocumentElement> elements = [];
         List<string> md = [];
         foreach (int k in order)
@@ -185,7 +191,60 @@ internal static class ExtractionDocumentBuilder
         return (elements, string.Join("\n\n", md.Where(m => m.Length > 0)));
     }
 
-    private static List<Item> Compose(PageResult page)
+    /// <summary>
+    /// The page's units grouped into LiteParse XY-cut leaf regions in reading order (columns read one after another);
+    /// rotated sidebar units follow as a last group. Null for a page whose main text runs sideways.
+    /// </summary>
+    private static List<List<int>>? UnitLeaves(PageResult page)
+    {
+        IReadOnlyList<Unit> units = page.Units;
+        if (units.Count == 0 || MainRotation.Detect(units, ocr: false) is not null)
+        {
+            return null;
+        }
+
+        List<int> body = [.. Enumerable.Range(0, units.Count).Where(i => !units[i].Minor && units[i].Text.Trim().Length > 0)];
+        List<XyItem> xy = [.. body.Select(i => new XyItem(units[i].PBox, units[i].Text.Trim(), units[i].FromOcr))];
+        // No obstacles: LiteParse stamps embedded-image boxes, and LayoutNet table boxes (often page-wide) block every cut.
+        List<List<int>> leaves = [.. XyCut.Leaves(xy, page.Width, page.Height).Select(l => l.Select(k => body[k]).ToList())];
+        List<int> minor = [.. Enumerable.Range(0, units.Count).Where(i => units[i].Minor && units[i].Text.Trim().Length > 0)];
+        if (minor.Count > 0)
+        {
+            leaves.Add([.. ReadingOrder.Order([.. minor.Select(i => units[i].PBox)]).Select(k => minor[k])]);
+        }
+
+        return leaves;
+    }
+
+    /// <summary>Items sorted by their earliest unit in leaf order; an item without ranked units keeps its place after its row-major predecessor.</summary>
+    private static List<int> ByLeafRank(List<Item> items, List<int> rowMajor, List<List<int>> leaves)
+    {
+        Dictionary<int, int> rank = [];
+        foreach (int u in leaves.SelectMany(l => l))
+        {
+            rank.TryAdd(u, rank.Count);
+        }
+
+        double[] key = new double[items.Count];
+        double last = -1;
+        foreach (int k in rowMajor)
+        {
+            IEnumerable<int> unitsOf = items[k] switch
+            {
+                BlockItem { Block: var b } => b.Units,
+                TableItem { Table: var t } => t.Units.Concat(t.Grid.Cells.SelectMany(c => c.Units)),
+                _ => [],
+            };
+            int best = unitsOf.Select(u => rank.TryGetValue(u, out int r) ? r : int.MaxValue).DefaultIfEmpty(int.MaxValue).Min();
+            last = key[k] = best == int.MaxValue ? last + 1e-6 : best;
+        }
+
+        List<int> order = [.. rowMajor];
+        Units.StableSort(order, (a, b) => key[a].CompareTo(key[b]));
+        return order;
+    }
+
+    private static List<Item> Compose(PageResult page, List<List<int>>? leaves)
     {
         HashSet<int> tableUnits = [.. page.Model.Tables.SelectMany(t => t.Units.Concat(t.Grid.Cells.SelectMany(c => c.Units)))];
         List<Item> items = [.. page.Model.Tables.Select(t => new TableItem(t))];
@@ -202,7 +261,7 @@ internal static class ExtractionDocumentBuilder
         }
 
         List<int> leftover = [.. Enumerable.Range(0, page.Units.Count).Where(i => !covered.Contains(i))];
-        items.AddRange(HeuristicBlocks.Build(page.Units, leftover).Select(b => new BlockItem(b)));
+        items.AddRange(HeuristicBlocks.Build(page.Units, leftover, leaves).Select(b => new BlockItem(b)));
         return items;
     }
 

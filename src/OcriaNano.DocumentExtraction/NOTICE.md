@@ -11,8 +11,9 @@ Copyright LlamaIndex, licensed under the Apache License, Version 2.0
 Ported files carry a header naming the LiteParse source they follow. Constants, thresholds and the
 homoglyph tables are copied from LiteParse. The C# code was changed from the original: it is a
 different language, it runs the models through ONNX Runtime for .NET, it reads PDFs with PdfPig and
-renders them with PDFium (via PDFtoImage), and it does not port LiteParse's projection features
-(`projection.rs`) or its pure-Rust network kernels (`table_model/net.rs`).
+renders them with PDFium (via PDFtoImage). From LiteParse's projection features (`projection.rs`) it
+ports only the XY-cut reading-order stage, and it does not port the pure-Rust network kernels
+(`table_model/net.rs`).
 
 ## OCRia-nano-1 models (not included)
 

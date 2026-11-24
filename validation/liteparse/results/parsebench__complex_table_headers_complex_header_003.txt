@@ -407,61 +407,61 @@ World
 7.9
 14.7
 91
-a Data collection methods, age ranges, sampled women (ever-partnered, ever-married or all women) and definitions of the forms of violence and of perpetrators vary by survey. Thus data are not necessarily comparable across countries. b Data refer to the most recent year available during the period specified.
 NOTES
-j
-k An unknown number of refugees and asylum- seekers from South Sudan may be included under data for Sudan. l Unweighted sum of national estimates.
-DEFINITIONS
-Refers to the average for 2009–2011, prior to South Sudan ’s independence.
-Homeless people due to natural disaster: Average annual number of people who lack a shelter for living quarters as a result of natural disasters, who carry their few possessions with them and who
-sleep in the streets, in doorways or on piers, or in any other space, on a more or less random basis, expressed per million people.
-Violence against women ever experienced,
-experienced physical or sexual violence from an intimate partner.
-experienced sexual violence from a nonintimate partner.
-nonintimate partner: Percentage of the female
-population, ages 15 and older, that has ever
-population, ages 15 and older, that has ever
-TABLE
-12
-Orphaned children: Number of children (ages 0–17) who have lost one or both parents due to any cause.
+a Data collection methods, age ranges, sampled women (ever-partnered, ever-married or all women) and definitions of the forms of violence and of perpetrators vary by survey. Thus data are not necessarily comparable across countries. b Data refer to the most recent year available during the period specified.
 c Data refer to people recognized as refugees under the 1951 UN Convention, the 1967 UN Protocol and the 1969 Organization of African Unity Convention. In the absence of government figures, the Office of the UN High Commissioner for Refugees (UNHCR) has estimated the refugee population in many industrial countries based on 10 years of individual asylum-seeker recognition. d For more detailed country notes, see www.
-Refugees by country of origin: Number of people who have fled their country of origin because of a
-caretaker says the birth has been registered.
-5 who were registered at the moment of the survey. It includes children whose birth certificate was seen
-by the interviewer and children whose mother or
-Birth registration: Percentage of children under age
-Prison population: Number of adult and juvenile prisoners — including pretrial detainees, unless otherwise noted — expressed per 100,000 people.
-Homicide rate: Number of unlawful deaths purposefully inflicted on a person by another person, expressed per 100,000 people.
-Columns 1, 5, 10 and 11: UNICEF (2016).
-Column 2: UNHCR (2016).
-MAIN DATA SOURCES
-needed to lift the undernourished from their status, holding all other factors constant.
-Depth of the food deficit: Number of kilocalories
-e HDRO calculations based on data from ICPS (2016).
 prisonstudies.org.
-well founded fear of persecution due to their race, religion, nationality, political opinion or membership in a particular social group and who cannot or do not
-want to return to their country of origin.
-Suicide rate: Number of deaths from purposely self-inflicted injuries, expressed per 100,000 people in the reference population.
-Column 3: IDMC (2016).
+e HDRO calculations based on data from ICPS (2016).
 f
 Differs from standard definition or refers to only part of the country.
-Internally displaced persons: Number of people
-Justification of wife beating: Percentage of
-Column 4: CRED EM-DAT (2016) and UNDESA (2015a).
 g
-h Refers to Palestinian refugees under the UNHCR mandate only. Another 5,589,488 Palestinian refugees are under the responsibility of United
 Refers to years or periods other than those specified.
+h Refers to Palestinian refugees under the UNHCR mandate only. Another 5,589,488 Palestinian refugees are under the responsibility of United
 Nations Relief and Works Agency for Palestinian
+Refugees in the Near East.
+i
+May include citizens of South Sudan.
+j
+Refers to the average for 2009–2011, prior to South Sudan ’s independence.
+k An unknown number of refugees and asylum- seekers from South Sudan may be included under data for Sudan. l Unweighted sum of national estimates.
+DEFINITIONS
+Birth registration: Percentage of children under age
+5 who were registered at the moment of the survey. It includes children whose birth certificate was seen
+by the interviewer and children whose mother or
+caretaker says the birth has been registered.
+Refugees by country of origin: Number of people who have fled their country of origin because of a
+well founded fear of persecution due to their race, religion, nationality, political opinion or membership in a particular social group and who cannot or do not
+want to return to their country of origin.
+Internally displaced persons: Number of people
 who have been forced to leave their homes or places of habitual residence — in particular, as a result of or to avoid the effects of armed conflict, situations of generalized violence, violations of human rights or natural or human-made disasters — and who have not crossed an internationally recognized state
+border.
+Homeless people due to natural disaster: Average annual number of people who lack a shelter for living quarters as a result of natural disasters, who carry their few possessions with them and who
+sleep in the streets, in doorways or on piers, or in any other space, on a more or less random basis, expressed per million people.
+Orphaned children: Number of children (ages 0–17) who have lost one or both parents due to any cause.
+Prison population: Number of adult and juvenile prisoners — including pretrial detainees, unless otherwise noted — expressed per 100,000 people.
+Homicide rate: Number of unlawful deaths purposefully inflicted on a person by another person, expressed per 100,000 people.
+Suicide rate: Number of deaths from purposely self-inflicted injuries, expressed per 100,000 people in the reference population.
+Justification of wife beating: Percentage of
 women and men ages 15–49 who consider a husband to be justified in hitting or beating his wife for at least one of the following reasons: if his wife burns the food, argues with him, goes out without telling him, neglects the children or refuses sexual relations.
+Violence against women ever experienced, intimate partner: Percentage of the female
+population, ages 15 and older, that has ever
+experienced physical or sexual violence from an intimate partner.
+TABLE
+Violence against women ever experienced,
+12
+nonintimate partner: Percentage of the female
+population, ages 15 and older, that has ever
+experienced sexual violence from a nonintimate partner.
+Depth of the food deficit: Number of kilocalories
+needed to lift the undernourished from their status, holding all other factors constant.
+MAIN DATA SOURCES
+Columns 1, 5, 10 and 11: UNICEF (2016).
+Column 2: UNHCR (2016).
+Column 3: IDMC (2016).
+Column 4: CRED EM-DAT (2016) and UNDESA (2015a).
 Column 6: ICPS (2016).
 Column 7: UNODC (2016).
 Columns 8 and 9: WHO (2016).
 Columns 12 and 13: UN Women (2016).
-i
-Refugees in the Near East.
-May include citizens of South Sudan.
-border.
-Violence against women ever experienced, intimate partner: Percentage of the female
 Column 14: FAO (2016a).
 TABLE 12 Human security | 245

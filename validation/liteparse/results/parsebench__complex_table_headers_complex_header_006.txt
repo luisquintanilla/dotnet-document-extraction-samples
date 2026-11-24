@@ -403,17 +403,17 @@ B 0.16
 0.19
 0.44
 0.16
-RSIO
 A
 1
 U
-2 3 4 5 6
-Table SM13.4: Literature sources used for assessment presented in Figure 13.11
 SM13.3
 Supplementary Material Supporting Section 13.4 S
+Table SM13.4: Literature sources used for assessment presented in Figure 13.11
 Impact/Risk Loss of habitat availability
 Supporting references of assessment (Coma et al., 2009; Garrabou et al., 2009; Huete-Stauffer et al., 2011; Munari, 2011; Kersting et al., 2013; Brodie et al., 2014; Frolov et al., 2014b; Rivetti et al., 2014; Altieri and Gedan, 2015; García Molinos et al., 2016; Spencer et al., 2016; Bakanev, 2017; Jessen et al., 2017; Orekhova, 2017; Berlinski and Popov, 2018; Buonomo et al., 2018; Jokinen et al., 2018; Reusch et al., 2018; Schuerch et al., 2018; van der Spek, 2018; Wang et al., 2018; Filatov et al., 2019; Garrabou et al., 2019; Saraiva et
 al., 2019; Spivak et al., 2019; D'Amen and Azzurro, 2020; Jiang et al., 2020; Pavlova, 2020; Sandø et al., 2020; Stepanyan, 2020)
 Do Not Cite, Quote or Distribute
 SM13-13
 Total pages: 120
+RSIO
+2 3 4 5 6

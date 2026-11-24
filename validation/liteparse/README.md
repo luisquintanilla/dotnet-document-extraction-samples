@@ -30,7 +30,7 @@ Each metric runs from 0 to 1.
 |---|---|---|
 | Recall | Share of LiteParse's distinct words that the port also produced | **0.946** |
 | Precision | Share of the port's distinct words that LiteParse also produced | **0.917** |
-| Order | Word-sequence LCS agreement | **0.858** |
+| Order | Word-sequence LCS agreement | **0.893** |
 
 Per input: [results/summary.md](results/summary.md).
 
@@ -51,10 +51,15 @@ Per input: [results/summary.md](results/summary.md).
 - **Native pages with vector figures: LiteParse finds more.** On `tokens-explained.pdf` and its hero page, recall is 0.83–0.89. The missing words fall into two groups:
   - labels inside vector-drawn diagrams ("Normalizer", "Engine", "Decode"), which LiteParse OCRs and the port's gate skips (the OCR gate deviation);
   - link URLs, which LiteParse writes into its Markdown.
-- **Reading order on complex layouts is the largest gap.** LiteParse's projection stage orders columns, sidebars and table cells. The port doesn't implement it, so:
-  - order drops to 0.47 on the multi-column `baoutou` page;
-  - it is 0.69–0.82 on forms, tables and annotated layouts.
-  
-  Every word is still there; it is the sequence that differs.
+- **Reading order uses LiteParse's XY-cut.** The port includes the XY-cut stage of LiteParse's `projection.rs`, so multi-column pages read column by column. Compared with the earlier row-major order:
+
+  | Page | Row-major | XY-cut |
+  |---|---|---|
+  | `baoutou` (multi-column) | 0.468 | 0.881 |
+  | `australia` form | 0.688 | 0.973 |
+  | `complex_header_003` | 0.727 | 0.774 |
+  | `10k` financial page | 0.735 | 0.757 |
+
+  Order is still 0.76–0.81 on the financial page, `complex_header_003` and the annotated layout. The rest of the projection stage isn't ported: line and cell grid rebuilding, and rotated-text placement (rotated sidebars are read last). Every word is still there; it is the sequence that differs.
 
 Ground-truth recall is otherwise equal or within 0.01 on the remaining ParseBench pages.

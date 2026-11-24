@@ -1,8 +1,6 @@
-C h a p t e r 2
 2024 UN E-GovErNmENt SUrvEy
 Figure 2.33 Average OSI subindex values for groups of countries in special situations relative to global
 averages, 2024
-TEC
 193 UN Member States 193 UN Member States
 Linear (global average OSI) Linear (global average OSI)
 LDC/LLDCs
@@ -57,6 +55,7 @@ EPI
 0.50 0.75
 0.75 1.00
 1.00
+TEC
 LLDCs
 LLDCs
 Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LLDCs) Linear (average OSI for LLDCs)
@@ -113,9 +112,6 @@ EPI
 0.50 0.75
 0.75 1.00
 1.00
-TEC
-EPI
-CP
 SIDS
 SIDS
 Linear (global average OSI) Linear (global average OSI) Linear (average OSI for SIDS) Linear (average OSI for SIDS)
@@ -168,6 +164,9 @@ EPI
 0.25 0.50
 0.50 0.75 0.75 1.00
 1.00
+CP
+TEC
+EPI
 Source: 2024 United Nations E-Government Surveys.
 Linear (global average OSI) Linear (global average OSI) Linear (average OSI for LDC/LLDC) Linear (average OSI for LDC/LLDC) F F
 Overall, the legislative framework for advancing e-government is better developed in llDcs, including those that are least developed, than in SIDS or lDcs (see figure 2.35). Most llDcs have SIDS SIDSLDCs LDCs LLDCs LDC/SIDS an e-government or digital government strategy (78 per cent), legislation or policy documents on Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix Yes No MetrixYes No Metrix cybersecurity (91 per cent), legal provisions for data protection (88 per cent), legislation governing freedom of information (78 per cent), and digital ID regulations (72 per cent). Fewer SIDS and lDcs (51 to 65 per cent) have these types of legislation in place, and the proportions are even lower for lDc/SIDS (between 13 and 65 per cent, depending on the type of legislation).
@@ -177,10 +176,11 @@ Very high EGDI Very high EGDI
 Americas
 Americas
 76
-Europe
-Asia
-Europe
-Asia
 High EGDI High EGDI Middle EGDI Middle EGDI Low EGDI Low EGDI
+Asia
+Asia
+Europe
+Europe
 Oceania
 Oceania
+C h a p t e r 2
