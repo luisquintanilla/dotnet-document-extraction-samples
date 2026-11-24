@@ -1,0 +1,18 @@
+> dotnet run 05-pipeline.cs -- ocria
+
+
+== tokens-explained.pdf
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1723383095] Document extraction invoked.
+   pdfpig read tokens-explained.pdf in 0.9s
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1553703230] Document extraction completed.
+   5 sections, about 781 words
+
+== tokens-explained-scanned.pdf
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1723383095] Document extraction invoked.
+   pdfpig read tokens-explained-scanned.pdf in 0.0s
+   No text layer in tokens-explained-scanned.pdf (0 characters). Falling back to OCR.
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1723383095] Document extraction invoked.
+   ocria read tokens-explained-scanned.pdf in 9.0s
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1553703230] Document extraction completed.
+dbug: Microsoft.Extensions.DocumentExtraction.LoggingDocumentExtractionClient[1553703230] Document extraction completed.
+   5 sections, about 886 words

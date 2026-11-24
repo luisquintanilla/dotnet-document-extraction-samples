@@ -15,10 +15,11 @@ using Microsoft.Extensions.DocumentExtraction;
 using Microsoft.Extensions.Documents;
 using Microsoft.Extensions.Logging;
 
-// Use the provider you name, or the first cloud provider you've configured, or local Ollama.
+// Use the provider you name, or local OCRia-nano if its models are installed,
+// or the first cloud provider you've configured, or local Ollama.
 string ocrName = args.Length > 0
     ? args[0]
-    : new[] { "cu", "docintel", "mistral" }.FirstOrDefault(n => Providers.Create(n, out _) is { } c && Dispose(c)) ?? "ollama";
+    : new[] { "ocria", "cu", "docintel", "mistral" }.FirstOrDefault(n => Providers.Create(n, out _) is { } c && Dispose(c)) ?? "ollama";
 
 var services = new ServiceCollection();
 services.AddLogging(logging => logging

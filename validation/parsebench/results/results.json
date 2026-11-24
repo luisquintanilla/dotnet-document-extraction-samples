@@ -2,7 +2,7 @@
   {
     "provider": "pdfpig",
     "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
-    "seconds": 0.8,
+    "seconds": 0.1,
     "truthTokens": 17,
     "shape": {
       "topSections": 1,
@@ -167,7 +167,7 @@
   {
     "provider": "pdfpig",
     "doc": "dense_tables_dense_table_002",
-    "seconds": 0.3,
+    "seconds": 0.2,
     "truthTokens": 285,
     "shape": {
       "topSections": 1,
@@ -222,7 +222,7 @@
   {
     "provider": "pdfpig",
     "doc": "financial_tables_10k-2026-08-13_page1",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 169,
     "shape": {
       "topSections": 1,
@@ -277,7 +277,7 @@
   {
     "provider": "pdfpig",
     "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 38,
     "shape": {
       "topSections": 1,
@@ -332,7 +332,7 @@
   {
     "provider": "pdfpig",
     "doc": "headings_case-0001-6bba8f14b5f6",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 23,
     "shape": {
       "topSections": 1,
@@ -387,7 +387,7 @@
   {
     "provider": "pdfpig",
     "doc": "layout_annotated__02775267_p3",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 508,
     "shape": {
       "topSections": 1,
@@ -442,7 +442,7 @@
   {
     "provider": "pdfpig",
     "doc": "tables_1_timetable__1__page2",
-    "seconds": 0.1,
+    "seconds": 0,
     "truthTokens": 100,
     "shape": {
       "topSections": 1,
@@ -544,6 +544,556 @@
         "strategy": "document.GetText()",
         "chars": 0,
         "truthRecall": 0,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "charts__Web_version__E-Government_Survey_2024_1392024_p101",
+    "seconds": 3.2,
+    "truthTokens": 17,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 3,
+      "gridPositions": 308,
+      "anchorCells": 162,
+      "mergedCells": 26,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 1385,
+        "truthRecall": 0.471,
+        "shareOfGetText": 0.66,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 1385,
+        "truthRecall": 0.471,
+        "shareOfGetText": 0.66,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3369,
+        "truthRecall": 0.941,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3367,
+        "truthRecall": 0.941,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3367,
+        "truthRecall": 0.941,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "complex_table_headers_complex_header_003",
+    "seconds": 1.8,
+    "truthTokens": 555,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 1,
+      "gridPositions": 600,
+      "anchorCells": 407,
+      "mergedCells": 12,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4457,
+        "truthRecall": 0.605,
+        "shareOfGetText": 0.608,
+        "repeatedLines": 1
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4457,
+        "truthRecall": 0.605,
+        "shareOfGetText": 0.608,
+        "repeatedLines": 1
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 7741,
+        "truthRecall": 0.993,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 7739,
+        "truthRecall": 0.993,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 7739,
+        "truthRecall": 0.993,
+        "shareOfGetText": 1,
+        "repeatedLines": 1
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "complex_table_headers_complex_header_006",
+    "seconds": 0.6,
+    "truthTokens": 195,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 3,
+      "gridPositions": 519,
+      "anchorCells": 404,
+      "mergedCells": 8,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 439,
+        "truthRecall": 0.256,
+        "shareOfGetText": 0.26,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 439,
+        "truthRecall": 0.256,
+        "shareOfGetText": 0.26,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3473,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3471,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3471,
+        "truthRecall": 0.979,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "dense_tables_dense_table_002",
+    "seconds": 4,
+    "truthTokens": 285,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 14313,
+        "truthRecall": 0.986,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 14313,
+        "truthRecall": 0.986,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 14313,
+        "truthRecall": 0.986,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 14311,
+        "truthRecall": 0.986,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 14311,
+        "truthRecall": 0.986,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "financial_tables_10k-2026-08-13_page1",
+    "seconds": 0.2,
+    "truthTokens": 169,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 2627,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 2627,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 2627,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 2625,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 2625,
+        "truthRecall": 0.994,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "forms_blank__australia--02_WA-DLA1--p2__blank",
+    "seconds": 2.2,
+    "truthTokens": 38,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4688,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4688,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4688,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4686,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4686,
+        "truthRecall": 0.868,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "headings_case-0001-6bba8f14b5f6",
+    "seconds": 3.6,
+    "truthTokens": 23,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 4211,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 4211,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 4211,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 4209,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 4209,
+        "truthRecall": 1,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "layout_annotated__02775267_p3",
+    "seconds": 1.1,
+    "truthTokens": 508,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 2,
+      "imagesWithText": 2
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3567,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3567,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3567,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3624,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3624,
+        "truthRecall": 0.602,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "tables_1_timetable__1__page2",
+    "seconds": 1.7,
+    "truthTokens": 100,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 0,
+      "gridPositions": 0,
+      "anchorCells": 0,
+      "mergedCells": 0,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 3325,
+        "truthRecall": 0.9,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 3325,
+        "truthRecall": 0.9,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 3325,
+        "truthRecall": 0.9,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 3323,
+        "truthRecall": 0.9,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 3323,
+        "truthRecall": 0.9,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      }
+    }
+  },
+  {
+    "provider": "ocria",
+    "doc": "text_text_dense__baoutou",
+    "seconds": 7.3,
+    "truthTokens": 560,
+    "shape": {
+      "topSections": 1,
+      "maxDepth": 1,
+      "nestedSections": 0,
+      "tables": 1,
+      "gridPositions": 120,
+      "anchorCells": 57,
+      "mergedCells": 11,
+      "sectionCells": 0,
+      "images": 0,
+      "imagesWithText": 0
+    },
+    "strategies": {
+      "A": {
+        "strategy": "Two-level loop over text elements",
+        "chars": 5398,
+        "truthRecall": 0.782,
+        "shareOfGetText": 0.8,
+        "repeatedLines": 0
+      },
+      "B": {
+        "strategy": "EnumerateContent() + text-element filter",
+        "chars": 5398,
+        "truthRecall": 0.782,
+        "shareOfGetText": 0.8,
+        "repeatedLines": 0
+      },
+      "C": {
+        "strategy": "Recursive walker without image text",
+        "chars": 6613,
+        "truthRecall": 0.957,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "D": {
+        "strategy": "EnumerateContent() + GetText() per element",
+        "chars": 6611,
+        "truthRecall": 0.957,
+        "shareOfGetText": 1,
+        "repeatedLines": 0
+      },
+      "E": {
+        "strategy": "document.GetText()",
+        "chars": 6611,
+        "truthRecall": 0.957,
         "shareOfGetText": 1,
         "repeatedLines": 0
       }

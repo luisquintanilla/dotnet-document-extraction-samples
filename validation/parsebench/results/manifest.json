@@ -1,12 +1,16 @@
 {
-  "runtime": ".NET 11.0.0-rc.3.26522.148",
+  "runtime": ".NET 11.0.0",
   "os": "Microsoft Windows 10.0.26200",
   "dataset": "llamaindex/ParseBench-2",
   "datasetRevision": "c300dcf475574f027dbaad0e15f64f6c9b73b830",
   "providers": {
     "pdfpig": {
-      "runUtc": "2026-11-19T18:26:11Z",
+      "runUtc": "2026-11-24T01:17:55Z",
       "settings": "text layer, DocstrumBoundingBoxes"
+    },
+    "ocria": {
+      "runUtc": "2026-11-24T01:17:29Z",
+      "settings": "OCRia-nano-1 latin, OcrMode.Auto"
     },
     "ollama": {
       "runUtc": "2026-11-19T18:26:11Z",
@@ -39,8 +43,12 @@
     "Microsoft.Extensions.DocumentExtraction.Abstractions": "11.0.0-preview.1.26560.3+c60d72e7973a90cd4e4300d9153e97b93315e4b7",
     "Microsoft.Extensions.Documents.Abstractions": "11.0.0-dev",
     "OllamaSharp": "5.5.2+a1ce0bd5f1021efd8d9dd1818a319575bb7b31a1",
+    "PDFtoImage": "5.1.1+9a38ef598d6851d83dcb4865fa51d71447f5a677",
     "UglyToad.PdfPig": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
     "UglyToad.PdfPig.Core": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
-    "UglyToad.PdfPig.DocumentLayoutAnalysis": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6"
+    "UglyToad.PdfPig.DocumentLayoutAnalysis": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
+    "UglyToad.PdfPig.Fonts": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
+    "UglyToad.PdfPig.Tokenization": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6",
+    "UglyToad.PdfPig.Tokens": "0.1.15+f131f642976936e06ee91cb19d3ed728f9dd18b6"
   }
 }

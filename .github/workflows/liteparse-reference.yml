@@ -1,0 +1,61 @@
+# Runs LiteParse (the Rust original the OCRia port follows) with ocria-nano on the repo's sample
+# documents and the ParseBench probe corpus, and uploads its Markdown and JSON as reference outputs.
+# validation/liteparse/compare.cs scores them against the C# port. Model weights stay on the runner.
+name: LiteParse reference outputs
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/liteparse-reference.yml
+      - validation/parsebench/corpus.json
+
+permissions:
+  contents: read
+
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install LiteParse and ocria-nano
+        run: |
+          pip install --quiet liteparse
+          lit --version | tee lit-version.txt
+          lit models pull ocria-nano
+
+      - name: Fetch the ParseBench probe corpus
+        run: |
+          mkdir -p inputs/parsebench
+          python - <<'PY'
+          import json, hashlib, urllib.parse, urllib.request
+          corpus = json.load(open("validation/parsebench/corpus.json"))
+          base = f"https://huggingface.co/datasets/{corpus['dataset']}/resolve/{corpus['revision']}/"
+          for doc in corpus["documents"]:
+              data = urllib.request.urlopen(base + urllib.parse.quote(doc["path"] + ".pdf")).read()
+              assert hashlib.sha256(data).hexdigest() == doc["pdfSha256"], doc["id"]
+              open(f"inputs/parsebench/{doc['id']}.pdf", "wb").write(data)
+          PY
+
+      - name: Parse
+        run: |
+          mkdir -p out
+          parse() {  # <input> <name>
+            lit parse "$1" --ocr-backend ocria-nano --format markdown -o "out/$2.md"
+            lit parse "$1" --ocr-backend ocria-nano --format json -o "out/$2.json"
+          }
+          for f in books/pdf/*.pdf books/pages/*.pdf; do parse "$f" "books__$(basename "$f" .pdf)"; done
+          for f in books/pages/*.png; do parse "$f" "books__$(basename "$f" .png).png" || echo "::warning::$f failed"; done
+          for f in inputs/parsebench/*.pdf; do parse "$f" "parsebench__$(basename "$f" .pdf)"; done
+          cp lit-version.txt out/
+          ls -la out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: liteparse-reference
+          path: out/

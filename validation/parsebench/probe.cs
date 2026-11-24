@@ -329,6 +329,7 @@ static JsonObject ProviderRun(string provider) => new()
     ["settings"] = provider switch
     {
         "pdfpig" => "text layer, DocstrumBoundingBoxes",
+        "ocria" => "OCRia-nano-1 latin, OcrMode.Auto",
         "ollama" => $"{Env("OLLAMA_VISION_MODEL") ?? "qwen3.5:4b"}, structured output {(Env("OLLAMA_STRUCTURED") is "0" or "false" ? "off" : "on, plain-markdown fallback")}",
         "mistral" => Env("AZURE_MISTRAL_OCR_URI") is not null ? $"Azure AI Foundry, {Env("AZURE_MISTRAL_OCR_MODEL") ?? "mistral-ocr-4-0"}" : $"Mistral API, {Env("MISTRAL_OCR_MODEL") ?? "mistral-ocr-latest"}",
         "docintel" => "prebuilt-layout",

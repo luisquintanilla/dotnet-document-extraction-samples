@@ -3,7 +3,7 @@
 // so all package references live here in one place.
 #:package Microsoft.Extensions.DocumentExtraction@11.0.0-preview.1.26560.3
 // TODO: drop this line once Microsoft.Extensions.DocumentExtraction ships with GetText (dotnet/extensions#7962).
-#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.2
+#:package Microsoft.Extensions.Documents.Abstractions@11.0.0-preview.1.26600.4
 #:package CommunityToolkit.DocumentExtraction.PdfPig@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.VisionLanguageModel@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.Mistral@1.0.0-preview
@@ -12,6 +12,8 @@
 #:package Azure.Identity@1.21.0
 #:package OllamaSharp@5.5.2
 #:package PDFtoImage@5.1.1
+// The OCRia-nano-1 client lives in this repo. Models: run tools/ocria/Get-OcriaModels.ps1 once.
+#:project $([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory),global.json))/src/OcriaNano.DocumentExtraction
 #:property PublishAot=false
 #:property NoWarn=$(NoWarn);MEDE0001;EXTEXP0019;CTDE0001;CA1416
 
@@ -26,17 +28,19 @@ using CommunityToolkit.DocumentExtraction.VisionLanguageModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DocumentExtraction;
 using Microsoft.Extensions.Documents;
+using OcriaNano.DocumentExtraction;
 using OllamaSharp;
 using UglyToad.PdfPig.DocumentLayoutAnalysis.PageSegmenter;
 
-/// <summary>Creates any of the five providers by name, using environment variables for settings.</summary>
+/// <summary>Creates any of the six providers by name, using environment variables for settings.</summary>
 static class Providers
 {
-    public static readonly string[] All = ["pdfpig", "ollama", "mistral", "docintel", "cu"];
+    public static readonly string[] All = ["pdfpig", "ocria", "ollama", "mistral", "docintel", "cu"];
 
     public static readonly Dictionary<string, string> DisplayNames = new()
     {
         ["pdfpig"] = "PdfPig (local, text layer)",
+        ["ocria"] = "OCRia-nano-1 (ONNX, local)",
         ["ollama"] = "Vision language model (Ollama)",
         ["mistral"] = "Mistral Document AI",
         ["docintel"] = "Azure Document Intelligence",
@@ -54,6 +58,15 @@ static class Providers
                 return new PdfPigDocumentExtractionClient(
                     pageSegmenter: DocstrumBoundingBoxes.Instance,
                     roleResolver: block => block.TextLines[0].Words[0].Letters[0].PointSize >= 13 ? "heading" : null);
+
+            case "ocria":
+                // OCRIA_MODEL_DIR overrides the default model folder.
+                if (!OcriaNanoModels.TryResolve(null, out string? modelDirectory, out string? reason))
+                {
+                    skipped = reason;
+                    return null;
+                }
+                return new OcriaNanoDocumentExtractionClient(new OcriaNanoOptions { ModelDirectory = modelDirectory });
 
             case "ollama":
                 string endpoint = Env("OLLAMA_ENDPOINT") ?? "http://localhost:11434";
