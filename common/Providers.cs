@@ -1,15 +1,16 @@
 #!/usr/bin/env dotnet
 // Shared helpers for every sample. Each sample pulls this file in with #:include,
 // so all package references live here in one place.
-#:package Microsoft.Extensions.DocumentExtraction@11.0.0-preview.1.26560.3
+#:package Microsoft.Extensions.DocumentExtraction@11.0.1-preview.1.26570.2
 #:package CommunityToolkit.DocumentExtraction.PdfPig@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.VisionLanguageModel@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.Mistral@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.AzureDocumentIntelligence@1.0.0-preview
 #:package CommunityToolkit.DocumentExtraction.AzureContentUnderstanding@1.0.0-preview
+#:package X-Ray.DocumentExtraction@26.11.8565-preview
 #:package Azure.Identity@1.21.0
 #:package OllamaSharp@5.5.2
-#:package PDFtoImage@5.1.1
+#:package PDFtoImage@5.4.0
 #:property PublishAot=false
 #:property NoWarn=$(NoWarn);MEDE0001;EXTEXP0019;CTDE0001;CA1416
 
@@ -25,16 +26,18 @@ using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DocumentExtraction;
 using Microsoft.Extensions.Documents;
 using OllamaSharp;
+using XRay.DocumentExtraction;
 using UglyToad.PdfPig.DocumentLayoutAnalysis.PageSegmenter;
 
-/// <summary>Creates any of the five providers by name, using environment variables for settings.</summary>
+/// <summary>Creates any of the six providers by name, using environment variables for settings.</summary>
 static class Providers
 {
-    public static readonly string[] All = ["pdfpig", "ollama", "mistral", "docintel", "cu"];
+    public static readonly string[] All = ["pdfpig", "xray", "ollama", "mistral", "docintel", "cu"];
 
     public static readonly Dictionary<string, string> DisplayNames = new()
     {
         ["pdfpig"] = "PdfPig (local, text layer)",
+        ["xray"] = "X-Ray.Content (local, 90+ formats)",
         ["ollama"] = "Vision language model (Ollama)",
         ["mistral"] = "Mistral Document AI",
         ["docintel"] = "Azure Document Intelligence",
@@ -52,6 +55,12 @@ static class Providers
                 return new PdfPigDocumentExtractionClient(
                     pageSegmenter: DocstrumBoundingBoxes.Instance,
                     roleResolver: block => block.TextLines[0].Words[0].Letters[0].PointSize >= 13 ? "heading" : null);
+
+            case "xray":
+                // X-Ray.Content reads the file itself, in process: PDFs with a text layer and
+                // also Word, Excel, PowerPoint, HTML, Markdown, e-mail and 90+ other formats.
+                // No keys, no network, no native libraries (OCR is opt-in and off here).
+                return new XRayDocumentExtractionClient();
 
             case "ollama":
                 string endpoint = Env("OLLAMA_ENDPOINT") ?? "http://localhost:11434";
@@ -256,6 +265,11 @@ static class Samples
     {
         ".pdf" => "application/pdf",
         ".png" => "image/png",
+        ".md" => "text/markdown",
+        ".html" or ".htm" => "text/html",
+        ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ".xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ".pptx" => "application/vnd.openxmlformats-officedocument.presentationml.presentation",
         ".jpg" or ".jpeg" => "image/jpeg",
         _ => "application/octet-stream",
     };

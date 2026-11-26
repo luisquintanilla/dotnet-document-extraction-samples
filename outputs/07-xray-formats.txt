@@ -1,0 +1,54 @@
+> dotnet run 07-xray-formats.cs
+
+== book.md (text/markdown)
+title: Tokens, Explained
+book.md: 1 sections
+  p [h1] Tokens, Explained
+  p [text] A short introduction to tokenization in .NET
+  p [text] By Luis Quintanilla
+  p [text] In this book
+  p [listItem] What a token is, and why models read tokens instead of words
+  p [listItem] The tokenizer families you will meet in .NET, side by side
+  p [listItem] How a tokenizer turns text into IDs, one stage at a time
+  p [listItem] How to count tokens and keep your prompts inside a budget
+  p [listItem] Where to go next to learn more
+  p [text] <div class="callout"><strong>Before you start.</strong> All example...
+  p [text] <code>Microsoft.ML.Tokenizers</code> NuGet package. The GPT-4o exam...
+  p [text] the <code>Microsoft.ML.Tokenizers.Data.O200kBase</code> data packag...
+  ...
+
+| Part of the request | Example tokens |
+| --- | --- |
+| System prompt | 1,000 |
+| Retrieved context | 100,000 |
+| User question | 500 |
+| Response reserve | 4,096 |
+| Unused headroom | 22,404 |
+| Total | 128,000 |
+
+
+== tokens-explained.pdf (application/pdf)
+title: Tokens, Explained
+tokens-explained.pdf: 1 sections
+  p [text] Tokens, Explained
+  p [text] A short introduction to tokenization in .NET
+  p [text] By Luis Quintanilla
+  p [text] In this book
+  p [text] What a token is, and why models read tokens instead of words
+  p [text] The tokenizer families you will meet in .NET, side by side
+  p [text] How a tokenizer turns text into IDs, one stage at a time
+  p [text] How to count tokens and keep your prompts inside a budget
+  p [text] Where to go next to learn more
+  p [text] Before you start. All examples use the  examples also need the Micr...
+  p [text] Page 1 of 5
+  p [text] NuGet package. The GPT-4o  data package.
+  ...
+
+== notes.html (in memory)
+notes.html: 1 sections
+  p [h1] Release notes
+  p [text] Shipped this week.
+  p [h2] Fixes
+  p [table 2x2] 
+
+Unsupported: X-Ray.Content cannot extract 'mystery.bin': no extractor handles media type 'application/x-unknown'.

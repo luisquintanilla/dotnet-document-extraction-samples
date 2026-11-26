@@ -4,7 +4,8 @@
 
 Small, runnable C# file-based apps that show `DocumentExtractionClient`
 (`Microsoft.Extensions.DocumentExtraction`) and the five
-[CommunityToolkit document extraction providers](https://github.com/CommunityToolkit/AI/tree/main/DocumentExtraction).
+[CommunityToolkit document extraction providers](https://github.com/CommunityToolkit/AI/tree/main/DocumentExtraction),
+plus [X-Ray.DocumentExtraction](https://github.com/curiosity-ai/x-ray), a local provider for 90+ formats.
 
 You write your document code once against `DocumentExtractionClient`. Then you pick the
 provider: a local PDF parser, a vision model, or a cloud OCR service.
@@ -38,6 +39,7 @@ Run each one from the repo root with `dotnet run <file>`.
 | [`04-tables-and-sources.cs`](04-tables-and-sources.cs) | Walk tables cell by cell and see where each element came from on the page | A provider that returns tables |
 | [`05-pipeline.cs`](05-pipeline.cs) | Dependency injection, logging, and custom middleware, including an OCR fallback for scanned PDFs | Ollama or an Azure provider |
 | [`06-ingest.cs`](06-ingest.cs) | Feed extraction into `Microsoft.Extensions.DataIngestion`: chunk, embed, search | Ollama (embeddings) |
+| [`07-xray-formats.cs`](07-xray-formats.cs) | One local provider for Markdown, HTML, Word, Excel, PDF and more, with no service | Nothing |
 
 Captured runs for every sample are in [`outputs/`](outputs/), so you can see what each provider
 returns without setting anything up.
@@ -51,6 +53,7 @@ with a message instead of failing.
 | Name | Provider | Runs | Good for | Settings |
 |---|---|---|---|---|
 | `pdfpig` | PdfPig | Locally, in process | PDFs with a text layer | None |
+| `xray` | X-Ray.DocumentExtraction | Locally, in process | Word, Excel, PowerPoint, HTML, Markdown, e-mail, PDFs with a text layer and 90+ other formats | None |
 | `ollama` | Vision language model (any `IChatClient`) | Locally with Ollama, or any hosted model | Scans and images, when you can review the output | `OLLAMA_ENDPOINT`, `OLLAMA_VISION_MODEL`, `OLLAMA_STRUCTURED` |
 | `docintel` | Azure Document Intelligence | Azure | Layout, tables, and page coordinates | `AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT` |
 | `cu` | Azure Content Understanding | Azure | Layout plus analyzers you can customize | `AZURE_CONTENT_UNDERSTANDING_ENDPOINT`, `AZURE_CONTENT_UNDERSTANDING_ANALYZER` |

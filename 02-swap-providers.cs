@@ -1,6 +1,6 @@
 #!/usr/bin/env dotnet
 // 02: Swap providers without changing your code.
-// The provider is picked by name. Everything after Providers.Create is the same for all five.
+// The provider is picked by name. Everything after Providers.Create is the same for all six.
 //   dotnet run 02-swap-providers.cs -- ollama
 //   dotnet run 02-swap-providers.cs -- docintel books/pdf/tensors-in-ten-pages.pdf
 #:include common/Providers.cs
